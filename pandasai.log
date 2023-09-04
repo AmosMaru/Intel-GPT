@@ -1,0 +1,326 @@
+2023-09-03 08:37:18 [INFO] Question: plot a graph of of the happiest country 
+2023-09-03 08:37:18 [INFO] Running PandasAI with starcoder LLM...
+2023-09-03 08:37:18 [INFO] Prompt ID: 22ef1eef-f0cc-4518-a377-d6389fbcf8f5
+2023-09-03 15:51:18 [INFO] Question:  Plot a bar graph to compare the annual tax collected and the happiness index of each country.
+2023-09-03 15:51:18 [INFO] Running PandasAI with openai LLM...
+2023-09-03 15:51:18 [INFO] Prompt ID: 394403d5-daea-4dad-8aaa-ee589ef7d424
+2023-09-03 15:51:36 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare: Preprocessing and cleaning data if necessary
+    df.dropna(inplace=True)
+    
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    df = df[['country', 'annual tax collected', 'happiness_index']]
+    
+    # Analyze: Conducting the actual analysis
+    # Plot a bar graph to compare the annual tax collected and the happiness index of each country
+    df.plot(x='country', y=['annual tax collected', 'happiness_index'], kind='bar')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.title('Comparison of Annual Tax Collected and Happiness Index')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    # Output: return a dictionary with the path of the plot
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-03 15:51:36 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df.dropna(inplace=True)
+    df = df[['country', 'annual tax collected', 'happiness_index']]
+    df.plot(x='country', y=['annual tax collected', 'happiness_index'], kind='bar')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.title('Comparison of Annual Tax Collected and Happiness Index')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-03 15:51:37 [INFO] Answer: {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+2023-09-03 15:51:37 [INFO] Executed in: 19.362939596176147s
+2023-09-03 15:53:14 [INFO] Question:  Plot a bar graph to compare the annual tax collected and the happiness index of each country.
+2023-09-03 15:53:14 [INFO] Running PandasAI with openai LLM...
+2023-09-03 15:53:14 [INFO] Prompt ID: c0f3cceb-422f-4bbc-877c-e391a148d755
+2023-09-03 15:53:14 [INFO] Using cached response
+2023-09-03 15:53:14 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare: Preprocessing and cleaning data if necessary
+    df.dropna(inplace=True)
+    
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    df = df[['country', 'annual tax collected', 'happiness_index']]
+    
+    # Analyze: Conducting the actual analysis
+    # Plot a bar graph to compare the annual tax collected and the happiness index of each country
+    df.plot(x='country', y=['annual tax collected', 'happiness_index'], kind='bar')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.title('Comparison of Annual Tax Collected and Happiness Index')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    # Output: return a dictionary with the path of the plot
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-03 15:53:14 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df.dropna(inplace=True)
+    df = df[['country', 'annual tax collected', 'happiness_index']]
+    df.plot(x='country', y=['annual tax collected', 'happiness_index'], kind='bar')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.title('Comparison of Annual Tax Collected and Happiness Index')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-03 15:53:15 [INFO] Answer: {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+2023-09-03 15:53:15 [INFO] Executed in: 1.0676853656768799s
+2023-09-03 16:03:28 [INFO] Question: plot a bar graph of top 5 happies countries?
+2023-09-03 16:03:28 [INFO] Running PandasAI with openai LLM...
+2023-09-03 16:03:28 [INFO] Prompt ID: 82fd65ed-446b-45cb-bb18-653baffd331b
+2023-09-03 16:03:44 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    df_sorted = df.sort_values(by='happiness_index', ascending=False)
+    top_5_countries = df_sorted.head(5)
+    
+    # Plotting the bar graph
+    plt.bar(top_5_countries['country'], top_5_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    # Save the plot to an image file
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-03 16:03:44 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df_sorted = df.sort_values(by='happiness_index', ascending=False)
+    top_5_countries = df_sorted.head(5)
+    plt.bar(top_5_countries['country'], top_5_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-03 16:03:45 [INFO] Answer: {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+2023-09-03 16:03:45 [INFO] Executed in: 17.33229660987854s
+2023-09-03 16:13:17 [INFO] Question: plot a bar graph of top 5 happies countries?
+2023-09-03 16:13:17 [INFO] Running PandasAI with openai LLM...
+2023-09-03 16:13:17 [INFO] Prompt ID: 78d7f340-3b36-491f-b552-3a29e062ef63
+2023-09-03 16:13:17 [INFO] Using cached response
+2023-09-03 16:13:17 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    df_sorted = df.sort_values(by='happiness_index', ascending=False)
+    top_5_countries = df_sorted.head(5)
+    
+    # Plotting the bar graph
+    plt.bar(top_5_countries['country'], top_5_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    # Save the plot to an image file
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-03 16:13:17 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df_sorted = df.sort_values(by='happiness_index', ascending=False)
+    top_5_countries = df_sorted.head(5)
+    plt.bar(top_5_countries['country'], top_5_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-03 16:13:18 [INFO] Answer: {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+2023-09-03 16:13:18 [INFO] Executed in: 0.9470014572143555s
+2023-09-03 16:14:54 [INFO] Question: plot a bar graph of top 5 happies countries?
+2023-09-03 16:14:54 [INFO] Running PandasAI with openai LLM...
+2023-09-03 16:14:54 [INFO] Prompt ID: 58c8c0e7-0263-418a-b7e8-b0788589b8a1
+2023-09-03 16:14:54 [INFO] Using cached response
+2023-09-03 16:14:54 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    df_sorted = df.sort_values(by='happiness_index', ascending=False)
+    top_5_countries = df_sorted.head(5)
+    
+    # Plotting the bar graph
+    plt.bar(top_5_countries['country'], top_5_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    # Save the plot to an image file
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-03 16:14:54 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df_sorted = df.sort_values(by='happiness_index', ascending=False)
+    top_5_countries = df_sorted.head(5)
+    plt.bar(top_5_countries['country'], top_5_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-03 16:14:56 [INFO] Answer: {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+2023-09-03 16:14:56 [INFO] Executed in: 1.4370055198669434s

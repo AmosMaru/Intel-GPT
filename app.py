@@ -13,8 +13,8 @@ app = Flask(__name__)
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
 # Initialize the OpenAI Language Model (LLM) with your OpenAI API token.
-llm = OpenAI(api_token="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")
-# llm = Starcoder(api_token="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")
+# llm = OpenAI(api_token="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")
+llm = Starcoder(api_token="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")
 
 # Define a route to render the main HTML page.
 @app.route('/')
@@ -41,6 +41,15 @@ def upload_file():
         user_question = request.form['user_question']
         response = sdf.chat(user_question)
 
+        # Check if the response contains an image URL or file path.
+        if 'response_type' in response and response['response_type'] == 'image':
+            # If it's an image response, extract the image URL or file path.
+            image_url = response['response']
+
+            # Pass the image URL to the template for rendering.
+            return render_template('index.html', image_response=image_url)
+
+        # If it's a text response, pass it as before.
         return render_template('index.html', response=response)
 
 if __name__ == '__main__':
