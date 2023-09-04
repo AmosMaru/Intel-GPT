@@ -10,11 +10,11 @@ from pandasai.llm import OpenAI
 app = Flask(__name__)
 
 # Set your Hugging Face Hub API token as an environment variable.
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = ""
 
 # Initialize the OpenAI Language Model (LLM) with your OpenAI API token.
 # llm = OpenAI(api_token="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")
-llm = Starcoder(api_token="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")
+llm = Starcoder(api_token="")
 
 # Define a route to render the main HTML page.
 @app.route('/')

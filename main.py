@@ -8,7 +8,7 @@ from pandasai import PandasAI
 # load_dotenv()
 
 def analyze_with_csv(df, prompts):
-    llm = Starcoder(api_token="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")
+    llm = Starcoder(api_token="")
     pandas_ai = PandasAI(llm)
     results = []
     for prompt in prompts:

@@ -59,7 +59,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 def generate_questions_from_csv(input_csv):
     # Define your OpenAI API key here
-    openai_api_key = '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'
+    openai_api_key = ''
 
     llm = OpenAI(temperature=.1,openai_api_key=openai_api_key)
 

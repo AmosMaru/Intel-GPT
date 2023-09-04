@@ -12,9 +12,9 @@ from pandasai.llm.openai import OpenAI
 
 # Load your OpenAI API key from environment variables
 def chat_with_csv(df, prompt):
-    llm = Falcon(api_token="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")
-    llm = Starcoder(api_token="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")
-    llm = OpenAI(api_token="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")
+    llm = Falcon(api_token="")
+    llm = Starcoder(api_token="")
+    llm = OpenAI(api_token="")
     
     pandas_ai = PandasAI(llm)
     result = pandas_ai.run(df, prompt=prompt)
