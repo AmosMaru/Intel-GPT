@@ -58,11 +58,9 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
 
 def generate_questions_from_csv(input_csv):
-    # Define your OpenAI API key here
-    openai_api_key = ''
 
-    llm = OpenAI(temperature=.1,openai_api_key=openai_api_key)
-
+    llm = OpenAI(openai_api_key='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')
+    
     # Check if the input_csv is None or empty
     if input_csv is None:
         return "Error: CSV file is missing or empty."
@@ -82,7 +80,7 @@ def generate_questions_from_csv(input_csv):
         qa_document_chain = AnalyzeDocumentChain(combine_docs_chain=qa_chain)
 
         # Define a question to generate questions for plotting relevant visualizations
-        question = "Write 15 statement that involves plotting relevant visualizations that would draw insights from this data with the best type of visualization to use and add the word 'plot'."
+        question = "Write 2 statement that involves plotting relevant visualizations that would drawing insights from this data with the best type of visualization to use and add the word 'plot'."
 
         # Generate questions using Langchain
         output_document = qa_document_chain.run(input_document=df.to_string(index=False), question=question)
@@ -90,3 +88,5 @@ def generate_questions_from_csv(input_csv):
         return output_document
     except Exception as e:
         return f"Error: {str(e)}"
+# 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
+print(generate_questions_from_csv('HappyCountries.csv'))

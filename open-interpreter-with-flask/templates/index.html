@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with Interpreter</title>
+</head>
+<body>
+    <h1>Chat with Interpreter</h1>
+    <div id="chatbox">
+        <div id="chatlog"></div>
+        <input type="text" id="user_input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var user_input = document.getElementById("user_input").value;
+            document.getElementById("user_input").value = "";
+
+            var chatlog = document.getElementById("chatlog");
+            chatlog.innerHTML += "<p><strong>You:</strong> " + user_input + "</p>";
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'user_input=' + encodeURIComponent(user_input),
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatlog.innerHTML += "<p><strong>Interpreter:</strong> " + data.response + "</p>";
+            });
+        }
+    </script>
+</body>
+</html>
