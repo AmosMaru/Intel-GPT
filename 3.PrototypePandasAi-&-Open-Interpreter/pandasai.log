@@ -1,0 +1,1219 @@
+2023-09-26 13:35:53 [INFO] Question: which is the happiest country
+2023-09-26 13:35:53 [INFO] Running PandasAI with openai LLM...
+2023-09-26 13:35:53 [INFO] Prompt ID: d9d2745e-a3db-43f5-a1da-ba12c1624ad8
+2023-09-26 13:36:14 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-09-26 13:36:14 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-09-26 13:36:14 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-09-26 13:36:14 [INFO] Executed in: 20.871060132980347s
+2023-09-26 13:39:20 [INFO] Question: plot a graph of country vs happiness index
+2023-09-26 13:39:20 [INFO] Running PandasAI with openai LLM...
+2023-09-26 13:39:20 [INFO] Prompt ID: 0644bf87-a5d0-4f18-b8b9-33f56762bd7e
+2023-09-26 13:39:35 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+
+    # Process
+    # No processing required for this analysis
+
+    # Analyze
+    plt.figure(figsize=(10, 6))
+    plt.bar(df['country'], df['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Country vs Happiness Index')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-26 13:39:35 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    plt.figure(figsize=(10, 6))
+    plt.bar(df['country'], df['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Country vs Happiness Index')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-26 13:39:35 [WARNING] Error of executing code
+2023-09-26 13:39:35 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-26 13:39:35 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-26 13:39:48 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-26 13:39:48 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-26 13:40:02 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    plt.figure(figsize=(10, 6))
+    plt.bar(df['country'], df['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Country vs Happiness Index')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-26 13:40:02 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-26 13:40:02 [INFO] Executed in: 41.932618856430054s
+2023-09-26 13:41:27 [INFO] Question: plot the top 5 happies countries
+2023-09-26 13:41:27 [INFO] Running PandasAI with openai LLM...
+2023-09-26 13:41:27 [INFO] Prompt ID: 7b543616-59f7-4c30-8ff7-12264ee32f6a
+2023-09-26 13:41:41 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-26 13:41:41 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-26 13:41:41 [WARNING] Error of executing code
+2023-09-26 13:41:41 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-26 13:41:41 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-26 13:41:56 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-26 13:41:56 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-26 13:42:10 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-26 13:42:10 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-26 13:42:10 [INFO] Executed in: 43.48444581031799s
+2023-09-26 16:50:39 [INFO] Question: which is the happiest country ?
+2023-09-26 16:50:39 [INFO] Running PandasAI with openai LLM...
+2023-09-26 16:50:39 [INFO] Prompt ID: 617af885-888b-477d-978f-f80d4175d383
+2023-09-26 16:50:53 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-09-26 16:50:53 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-09-26 16:50:53 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-09-26 16:50:53 [INFO] Executed in: 14.253395318984985s
+2023-09-26 16:51:16 [INFO] Question: Plot the top 5 happiest countries?
+2023-09-26 16:51:16 [INFO] Running PandasAI with openai LLM...
+2023-09-26 16:51:16 [INFO] Prompt ID: 68882b66-8f35-44de-897b-f2221e6a9aee
+2023-09-26 16:51:17 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-giLi0***************************************1uE4. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-26 16:53:44 [INFO] Question: plot the top 5 happiest countries
+2023-09-26 16:53:44 [INFO] Running PandasAI with openai LLM...
+2023-09-26 16:53:44 [INFO] Prompt ID: 3d507891-fc5f-4868-b4a7-6977fb4597e3
+2023-09-26 16:53:45 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-giLi0***************************************1uE4. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-26 17:00:34 [INFO] Question: which is the happiest country?
+
+2023-09-26 17:00:34 [INFO] Running PandasAI with openai LLM...
+2023-09-26 17:00:34 [INFO] Prompt ID: 739ec3e1-0f22-4f0e-b4cd-e3979211faae
+2023-09-26 17:00:51 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    happiest_country = dfs[0].loc[dfs[0]['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-09-26 17:00:51 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    happiest_country = dfs[0].loc[dfs[0]['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-09-26 17:00:51 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-09-26 17:00:51 [INFO] Executed in: 17.02573251724243s
+2023-09-26 17:04:35 [INFO] Question: plot the top 5 happiest countries ?
+2023-09-26 17:04:35 [INFO] Running PandasAI with openai LLM...
+2023-09-26 17:04:35 [INFO] Prompt ID: a993aa2e-25d9-47c0-bc0d-933c7440e660
+2023-09-26 17:04:52 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-26 17:04:52 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-26 17:04:53 [WARNING] Error of executing code
+2023-09-26 17:04:53 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-26 17:04:53 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-26 17:05:13 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-26 17:05:13 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-26 17:05:29 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-26 17:05:29 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-26 17:05:29 [INFO] Executed in: 53.96018624305725s
+2023-09-26 17:08:48 [INFO] Question: which is the happiest country?
+2023-09-26 17:08:48 [INFO] Running PandasAI with openai LLM...
+2023-09-26 17:08:48 [INFO] Prompt ID: c41d7d2c-a916-4c2f-b21b-b7e856cff025
+2023-09-26 17:09:00 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    happiest_country = dfs[0].loc[dfs[0]['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-09-26 17:09:01 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    happiest_country = dfs[0].loc[dfs[0]['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-09-26 17:09:01 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-09-26 17:09:01 [INFO] Executed in: 12.333163976669312s
+2023-09-26 17:09:19 [INFO] Question: plot the graph of the top 5 happiest countries
+2023-09-26 17:09:19 [INFO] Running PandasAI with openai LLM...
+2023-09-26 17:09:19 [INFO] Prompt ID: 3e5b3b13-39f3-456c-b040-e32bb8357143
+2023-09-26 17:09:36 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the graph of the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-26 17:09:36 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-26 17:09:36 [WARNING] Error of executing code
+2023-09-26 17:09:36 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-26 17:09:36 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-26 17:09:56 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-26 17:09:56 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-26 17:10:12 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-26 17:10:13 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-26 17:10:13 [INFO] Executed in: 53.33284878730774s
+2023-09-26 17:12:45 [INFO] Question: plot a graph of the top 5 happiest countries
+2023-09-26 17:12:45 [INFO] Running PandasAI with openai LLM...
+2023-09-26 17:12:45 [INFO] Prompt ID: 91f0e1ec-910a-4468-9fba-c86cddd78a53
+2023-09-26 17:13:01 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot a graph of the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-26 17:13:01 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-26 17:13:01 [WARNING] Error of executing code
+2023-09-26 17:13:01 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-26 17:13:01 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-26 17:13:20 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-26 17:13:20 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-26 17:13:36 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-26 17:13:36 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-26 17:13:36 [INFO] Executed in: 51.55116891860962s
+2023-09-26 17:21:51 [INFO] Question: 
+2023-09-26 17:21:51 [INFO] Running PandasAI with openai LLM...
+2023-09-26 17:21:51 [INFO] Prompt ID: 42b9b895-87dc-435a-855e-1c4d4305a37f
+2023-09-26 17:22:07 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare: No preprocessing or cleaning required
+    
+    # Process: Grouping the data by country and calculating the sum of annual tax collected
+    df = dfs[0]
+    grouped_df = df.groupby('country').sum()
+    
+    # Analyze: Getting the country with the highest annual tax collected
+    max_tax_country = grouped_df['annual tax collected'].idxmax()
+    
+    # Output: Returning the country with the highest annual tax collected
+    return {"type": "text", "value": f"The country with the highest annual tax collected is {max_tax_country}."}
+```
+
+2023-09-26 17:22:07 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    grouped_df = df.groupby('country').sum()
+    max_tax_country = grouped_df['annual tax collected'].idxmax()
+    return {'type': 'text', 'value': f'The country with the highest annual tax collected is {max_tax_country}.'}
+        ```
+2023-09-26 17:22:07 [WARNING] Error of executing code
+2023-09-26 17:22:07 [INFO] Answer: {'type': 'text', 'value': 'The country with the highest annual tax collected is Agra.'}
+2023-09-26 17:22:07 [INFO] Executed in: 16.405292749404907s
+2023-09-27 19:44:09 [INFO] Question: Plot the top 5 happiest countries
+2023-09-27 19:44:09 [INFO] Running PandasAI with openai LLM...
+2023-09-27 19:44:09 [INFO] Prompt ID: c72090c3-289a-4cb4-a546-33590d9d9546
+2023-09-27 19:44:10 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-rUNYu***************************************EeOZ. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-27 20:08:48 [INFO] Question: Plot the top 5 happiest countries
+2023-09-27 20:08:48 [INFO] Running PandasAI with openai LLM...
+2023-09-27 20:08:48 [INFO] Prompt ID: 51aa043d-a1a5-4e47-9150-4ebd3cbec73c
+2023-09-27 20:08:49 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-rUNYu***************************************EeOZ. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-27 20:10:05 [INFO] Question: Plot the top 5 happiest countries
+2023-09-27 20:10:05 [INFO] Running PandasAI with openai LLM...
+2023-09-27 20:10:05 [INFO] Prompt ID: 120fc902-32a3-425f-a502-03fe1fa46d3b
+2023-09-27 20:10:24 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-27 20:10:24 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-27 20:10:25 [WARNING] Error of executing code
+2023-09-27 20:10:25 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-27 20:10:25 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-27 20:10:44 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-27 20:10:44 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-27 20:11:03 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-27 20:11:03 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-27 20:11:03 [INFO] Executed in: 57.72944450378418s
+2023-09-29 07:34:31 [INFO] Question: Which is the happiest country
+2023-09-29 07:34:31 [INFO] Running PandasAI with openai LLM...
+2023-09-29 07:34:31 [INFO] Prompt ID: 8da34bf2-b8c9-4119-ac02-f65300bd3178
+2023-09-29 07:34:44 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-09-29 07:34:44 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-09-29 07:34:44 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-09-29 07:34:44 [INFO] Executed in: 13.437280416488647s
+2023-09-29 07:58:01 [INFO] Question: A bar chart with cities on the x-axis and annual tax
+collected on the y-axis can be used to compare the financial
+contribution of each city.
+2023-09-29 07:58:01 [INFO] Running PandasAI with openai LLM...
+2023-09-29 07:58:01 [INFO] Prompt ID: 022b0326-71d3-494c-8749-d80f6ca4a6db
+2023-09-29 07:58:17 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0].copy()
+    
+    # Process
+    df['annual tax collected'] = df['annual tax collected'].astype(int)
+    
+    # Analyze
+    if 'bar chart' in input_text and 'cities' in input_text and 'annual tax collected' in input_text:
+        plt.bar(df['country'], df['annual tax collected'])
+        plt.xlabel('Cities')
+        plt.ylabel('Annual Tax Collected')
+        plt.title('Comparison of Annual Tax Collected by City')
+        plt.xticks(rotation=45)
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-29 07:58:17 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0].copy()
+    df['annual tax collected'] = df['annual tax collected'].astype(int)
+    if 'bar chart' in input_text and 'cities' in input_text and 'annual tax collected' in input_text:
+        plt.bar(df['country'], df['annual tax collected'])
+        plt.xlabel('Cities')
+        plt.ylabel('Annual Tax Collected')
+        plt.title('Comparison of Annual Tax Collected by City')
+        plt.xticks(rotation=45)
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-29 07:58:18 [WARNING] Error of executing code
+2023-09-29 07:58:18 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-29 07:58:18 [ERROR] Failed with error: Cannot convert non-finite values (NA or inf) to integer. Retrying
+2023-09-29 07:58:34 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0].copy()
+    df['annual tax collected'] = pd.to_numeric(df['annual tax collected'], errors='coerce')
+    if 'bar chart' in input_text and 'cities' in input_text and 'annual tax collected' in input_text:
+        plt.bar(df['country'], df['annual tax collected'])
+        plt.xlabel('Cities')
+        plt.ylabel('Annual Tax Collected')
+        plt.title('Comparison of Annual Tax Collected by City')
+        plt.xticks(rotation=45)
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-29 07:58:34 [WARNING] Error of executing code
+2023-09-29 07:58:34 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-29 07:58:34 [ERROR] Failed with error: name 'input_text' is not defined. Retrying
+2023-09-29 07:58:50 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame], input_text: str) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0].copy()
+    df['annual tax collected'] = df['annual tax collected'].astype(int)
+    if 'bar chart' in input_text and 'cities' in input_text and 'annual tax collected' in input_text:
+        plt.bar(df['country'], df['annual tax collected'])
+        plt.xlabel('Cities')
+        plt.ylabel('Annual Tax Collected')
+        plt.title('Comparison of Annual Tax Collected by City')
+        plt.xticks(rotation=45)
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-29 07:58:50 [WARNING] Error of executing code
+2023-09-29 08:09:43 [INFO] Question: Plot the top 4 happiest contries 
+2023-09-29 08:09:43 [INFO] Running PandasAI with openai LLM...
+2023-09-29 08:09:43 [INFO] Prompt ID: 2c47c1a7-4205-4074-b144-6a3475e491d9
+2023-09-29 08:10:00 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 4 happiest countries
+    top_4_happiest = sorted_df.head(4)
+    
+    # Analyze: Plot the top 4 happiest countries
+    plt.bar(top_4_happiest['country'], top_4_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 4 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-29 08:10:00 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_4_happiest = sorted_df.head(4)
+    plt.bar(top_4_happiest['country'], top_4_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 4 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-29 08:10:00 [WARNING] Error of executing code
+2023-09-29 08:10:00 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-29 08:10:00 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-29 08:10:19 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-29 08:10:19 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-29 08:10:37 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_4_happiest = sorted_df.head(4)
+    plt.bar(top_4_happiest['country'], top_4_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 4 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-29 08:10:37 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-29 08:10:37 [INFO] Executed in: 54.59662652015686s
+2023-09-29 08:45:27 [INFO] Question: which is the happiest country
+2023-09-29 08:45:27 [INFO] Running PandasAI with openai LLM...
+2023-09-29 08:45:27 [INFO] Prompt ID: b97dea9e-4477-40fe-b276-f52611d42a07
+2023-09-29 08:45:41 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-09-29 08:45:41 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-09-29 08:45:41 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-09-29 08:45:41 [INFO] Executed in: 13.732182741165161s
+2023-09-29 12:38:07 [INFO] Question: plot a bar graph of top5 happiest countries
+2023-09-29 12:38:07 [INFO] Running PandasAI with openai LLM...
+2023-09-29 12:38:07 [INFO] Prompt ID: f622a5a7-b609-4800-9cb9-148397eb1af5
+2023-09-29 12:38:26 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top5_happiest_countries = df.head(5)
+    
+    # Analyze: Plot a bar graph of top 5 happiest countries
+    plt.bar(top5_happiest_countries['country'], top5_happiest_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-09-29 12:38:26 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top5_happiest_countries = df.head(5)
+    plt.bar(top5_happiest_countries['country'], top5_happiest_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-09-29 12:38:26 [WARNING] Error of executing code
+2023-09-29 12:38:26 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-29 12:38:26 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-09-29 12:38:47 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-29 12:38:47 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-29 12:39:05 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top5_happiest_countries = df.head(5)
+    plt.bar(top5_happiest_countries['country'], top5_happiest_countries['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-09-29 12:39:05 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-09-29 12:39:05 [INFO] Executed in: 57.96208953857422s

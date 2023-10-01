@@ -2,9 +2,10 @@ from flask import Flask, render_template, request
 import interpreter
 import io
 import sys
+interpreter.auto_run = True
 
 app = Flask(__name__)
-interpreter.api_key = "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"
+interpreter.api_key = "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"
 
 def chat_with_interpreter(prompt):
     buffer = io.StringIO()
