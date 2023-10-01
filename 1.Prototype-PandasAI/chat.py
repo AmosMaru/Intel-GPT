@@ -5,12 +5,14 @@ from pandasai.llm.openai import OpenAI
 from pandasai.llm.starcoder import Starcoder
 import os
 import matplotlib
-from mitosheet.streamlit.v1 import spreadsheet
+# from mitosheet.streamlit.v1 import spreadsheet
 matplotlib.use('TkAgg')  # or 'Qt5Agg'
-
 import os
 import shutil
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
+
 
 def copy_folder_contents(source_folder, destination_folder):
     # Check if the source folder exists
@@ -43,11 +45,12 @@ def copy_folder_contents(source_folder, destination_folder):
             shutil.copytree(source_path, destination_path)
 
 # Load OpenAI API key
-# openai_api_key = os.environ["OPENAI_API_KEY"]
-# llm = OpenAI(api_token='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')
-llm = Starcoder(api_token="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")
-pandas_ai = PandasAI(llm)
+openai_api_key = os.environ["OPENAI_API_KEY"]
+huggingface_api_key = os.environ["HUGGINGFACE_API_KEY"]
 
+llm = OpenAI(api_token=openai_api_key)
+llm = Starcoder(api_token=huggingface_api_key)
+pandas_ai = PandasAI(llm)
 # Streamlit App
 st.header("Business Analyst and Insight AI(BAIai)")
 
@@ -65,7 +68,7 @@ with st.sidebar:
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     # st.write(df)
-    new_dfs, code = spreadsheet(df)
+    # new_dfs, code = spreadsheet(df)
 
     # Display the DataFrame
 

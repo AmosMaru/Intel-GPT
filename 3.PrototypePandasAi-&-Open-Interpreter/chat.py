@@ -6,17 +6,16 @@ import io
 import sys
 import streamlit as st 
 from pandasai.llm.openai import OpenAI
-from dotenv import load_dotenv
 import os
 import pandas as pd
 from pandasai import PandasAI
 import matplotlib
 matplotlib.use('TkAgg')
 
+from dotenv import load_dotenv
 load_dotenv()
 
-# openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_api_key = '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'
+openai_api_key = os.getenv("OPENAI_API_KEY")
 # Define the path to the folder containing images
 image_folder_path = 'images'
 

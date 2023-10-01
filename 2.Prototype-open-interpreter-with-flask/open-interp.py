@@ -3,7 +3,9 @@ import pandas as pd
 import interpreter
 import io
 import sys
-interpreter.api_key = "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"
+from dotenv import load_dotenv
+load_dotenv()
+interpreter.api_key = ""
 
 def chat_with_interpreter(prompt):
     # Create a text buffer
