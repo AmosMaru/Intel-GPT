@@ -51,10 +51,8 @@ The AI-driven Business Intelligence platform integrated with an ERP system will 
 6. **ERP Integration:**
    - Integrate with an open-source ERP system to manage business operations, including inventory management, order processing, and financial tracking.
 
-7. **Predictive Analysis**
-
-8. **Report Generation About the Business**
-
+7. **Report Generation About the Business**
+   - The buisness would be able download the reports based of it's activities. 
 ## Benefits
 
 - Small businesses gain access to actionable insights without the need for dedicated analysts.
