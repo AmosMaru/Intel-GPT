@@ -62,4 +62,22 @@ The AI-driven Business Intelligence platform integrated with an ERP system will 
 - Interactive features, including chat functionality, enhance user engagement and ease of use.
 - The platform empowers small businesses to compete in a data-driven market just like big businesses.
 
+## Interaction Flow:
+
+1. The user logs in via the web , and their credentials are authenticated.
+
+2. After authentication, the user is directed to their personalized dashboard.
+
+3. The user interacts with the AI Data-Driven Analyst through the chatbot interface.
+
+4. The chatbot processes the user's queries and sends them to the AI Data-Driven Analyst for analysis.
+
+5. The AI Data-Driven Analyst utilizes Generative AI models to analyze data, identify patterns, and generate insights.
+
+6. The user can visualize the insights on their dashboard.
+
+7. The integrated ERP system manages business operations, including inventory, orders, and finances.
+
+8. The Reporting Module generates periodic reports summarizing the business's performance.
+   
 ---
