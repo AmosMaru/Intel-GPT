@@ -20,6 +20,8 @@ from langchain import PromptTemplate, LLMChain
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 
+from dotenv import load_dotenv
+load_dotenv()
 
 # Load model directly
 
@@ -56,10 +58,12 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 #              model="llama2")
 # llm_1 = VertexAI()
 
+openai_api_key = os.environ["OPENAI_API_KEY"]
+huggingface_api_key = os.environ["HUGGINGFACE_API_KEY"]
 
 def generate_questions_from_csv(input_csv):
 
-    llm = OpenAI(openai_api_key='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')
+    llm = OpenAI(openai_api_key=openai_api_key)
     
     # Check if the input_csv is None or empty
     if input_csv is None:

@@ -1,79 +1,83 @@
-# Business Analyst Intelligence AI(BAIai)
-### Team lead:
-Amos Kibet
+# INTEL-GPT: AI-Driven Business Intelligence Platform with ERP Integration
 
-### Team Members:
-David Mwiti
-Kiprotich Kimutai
-Micheal Munavu
+## Problem Statement
 
-# Problem Statement:
+Small businesses, including local restaurants, minimarts, small-scale farmers, and agribusinesses, face a common challenge in generating valuable insights from their data due to limited resources for hiring analysts. To address this issue, we aim to develop an affordable and user-friendly AI-driven Business Intelligence platform integrated with an ERP system. This platform will enable small businesses to automate analysis, generate insights, and seamlessly manage their operations, all with the goal of optimizing business operations and decision-making.
 
-Small businesses, such as local restaurants and minimart, face a common challenge of generating valuable insights from their data due to limited resources for hiring analysts. To address this issue, there is a need to develop an affordable and user-friendly AI-driven Business Intelligence platform. This platform should enable small businesses to create data pipelines, generate interactive graphs, provide explanations, and offer chat functionality for optimizing business operations and decision-making.
+## Primary Objectives
 
-## Primary Objectives:**
+1. Build an AI data-driven analyst integrated with an ERP system for small businesses.
 
-1. Build an AI data-driven analyst for small businesses.
+## Secondary Objectives
 
-## Secondary Objectives**
+1. Identify data sources.
+2. Implement data preprocessing.
+3. Establish a tailored Data Pipeline for specific business niches.
+4. Feed the data into a GPT model for comprehensive data analysis.
+5. Integrate with an open-source ERP system for streamlined operations.
+6. Implement a chatbot to provide detailed explanations to users.
 
-1. Data source.
-2. Data preprocessing.
-3. Building a Data pipeline for business niche.
-4. Feeding the data into a GPT model (data analysis).
-5. Feeding the output to the open source chatbot.
-6. Chatbot give detailed explanation to the user.
+## Context
 
-## Context:
-Small businesses often collect data from various sources but lack the expertise and resources to analyze and interpret this data effectively. This leads to missed opportunities for operational improvements, cost savings, and revenue growth. The proposed AI-driven Business Intelligence platform aims to bridge this gap by automating the data analysis process and providing actionable insights in a comprehensible manner.
+Small businesses often collect data from various sources but lack the expertise and resources to analyze and interpret this data effectively. This leads to missed opportunities for operational improvements, cost savings, and revenue growth. The proposed AI-driven Business Intelligence platform, integrated with an ERP system, aims to bridge this gap by automating the data analysis process, providing actionable insights, and streamlining business operations.
 
-## Scope:
-The solution involves creating an AI-powered platform tailored to the needs of small businesses, for example, those in the restaurant industry. The platform will automate the process of data analysis, insights generation, and data pipeline creation. Additionally, it will offer interactive features like chat systems to enhance functionality and user engagement.
+## Scope
 
-## Proposed Solution (functionality):
-The AI-driven Business Intelligence platform will encompass the following features:
+The solution involves creating an AI-powered platform tailored to the needs of small businesses, such as those in the restaurant industry. The platform will automate the process of data analysis, insights generation, data pipeline creation, and integrate seamlessly with an ERP system for comprehensive business management.
 
-1. Pipeline Creation for data cleaning:
-    - Enable seamless integration with various data sources, such as POS systems, inventory databases, and customer feedback.
-    - Automatically create data pipelines tailored to the business needs, ensuring data is cleaned, transformed, and organized.
-2. Automated Analysis and Insights Generation:
-    - Utilize AI algorithms to analyze data and identify patterns, trends, and correlations.
-    - Generate interactive graphs and visualizations to represent key performance indicators and insights.
-3. Explanations and Context:
-    - Provide plain language explanations for the generated insights, making complex data understandable for non-technical users.
-    - Offer context to help business owners understand the implications of the insights on their operations.
-4. Custom Dashboards:
-    - Develop user-friendly and customizable dashboards that allow business owners to track specific KPIs and visualize data effectively.
-5. Interactive Chat Functionality:
-    - Implement a chatbot system that enables users to ask questions, seek clarification on insights, and receive real-time responses.
-    - Optimize functionality through natural language processing and contextual understanding.
-      
-## Technical Stack:
-Programming Languages: 
-Python
-Html, css & Javascript
+## Proposed Solution
 
-Frameworks/Libraries: 
+The AI-driven Business Intelligence platform integrated with an ERP system will encompass the following features:
 
-Ai Models: 
-OpenAi for viualization creation
-Flacon (substitutes)
-StaterCode (substitutes)
-Llava for viualization interpration
+1. **Automated Analysis and Insights Generation:**
+   - Utilize AI algorithms to analyze data and identify patterns, trends, and correlations.
+   - Generate interactive graphs and visualizations to represent key performance indicators and insights.
 
-Tools: 
-Git (for version control), 
-Programming Languages: JavaScript (for front-end development), Python (for back-end development)
+2. **Explanations and Context:**
+   - Provide plain language explanations for the generated insights, making complex data understandable for non-technical users.
+   - Offer context to help business owners understand the implications of the insights on their operations.
 
-Goals for Day 1:
+3. **Custom Dashboards:**
+   - Develop user-friendly and customizable dashboards that allow business owners to track specific KPIs and visualize data effectively.
 
-Our goals for day 1 were:
-• To full outline our goals and objective of our project. 
-• Research on the best llms to use for the project.
-• Divide the work load among the team members and setting deadlines for features being built.
+4. **Interactive Chat Functionality:**
+   - Implement a chatbot system that enables users to ask questions, seek clarification on insights, and receive real-time responses.
+   - Optimize functionality through natural language processing and contextual understanding.
 
+5. **Data Integration and Pipeline Creation:**
+   - Enable seamless integration with various data sources, such as POS systems, inventory databases, and customer feedback.
+   - Automatically create data pipelines tailored to the business needs, ensuring data is cleaned, transformed, and organized.
 
-Current Status:
-All of the day one objectives were met ready to proceed to build. 
+6. **ERP Integration:**
+   - Integrate with an open-source ERP system to manage business operations, including inventory management, order processing, and financial tracking.
 
+7. **Report Generation About the Business**
+   - The buisness would be able download the reports based of it's activities. 
+## Benefits
 
+- Small businesses gain access to actionable insights without the need for dedicated analysts.
+- Data-driven decision-making is facilitated, leading to improved operations, cost savings, and revenue growth.
+- The integrated ERP system streamlines business operations, allowing for efficient management of resources.
+- The platform's accessibility will create more job opportunities for young people who can become proficient in utilizing AI, data analytics, and ERP systems. They can become integral in managing and optimizing the platform, further contributing to business growth.
+- Interactive features, including chat functionality, enhance user engagement and ease of use.
+- The platform empowers small businesses to compete in a data-driven market just like big businesses.
+
+## Interaction Flow:
+
+1. The user logs in via the web , and their credentials are authenticated.
+
+2. After authentication, the user is directed to their personalized dashboard.
+
+3. The user interacts with the AI Data-Driven Analyst through the chatbot interface.
+
+4. The chatbot processes the user's queries and sends them to the AI Data-Driven Analyst for analysis.
+
+5. The AI Data-Driven Analyst utilizes Generative AI models to analyze data, identify patterns, and generate insights.
+
+6. The user can visualize the insights on their dashboard.
+
+7. The integrated ERP system manages business operations, including inventory, orders, and finances.
+
+8. The Reporting Module generates periodic reports summarizing the business's performance.
+   
+---
