@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with AI</title>
+    <title>Interpreter Chat</title>
 </head>
 <body>
-    <h1>Chat with AI</h1>
     <form method="POST">
-        <label for="prompt">Enter your prompt:</label>
         <input type="text" name="prompt" required>
-        <button type="submit">Submit</button>
+        <input type="submit" value="Submit">
     </form>
-    <h2>Chat Result:</h2>
     {% if result %}
-        <pre>{{ result }}</pre>
-    {% else %}
-        <p>Upload a CSV file and enter a prompt to chat.</p>
+        <p>{{ result }}</p>
     {% endif %}
-    <img src="data:image/png;base64,{{ img_data }}">
-    <a href="/templates/dashboard.html">view dashboard</a>
 </body>
 </html>
+
+
+
