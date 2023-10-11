@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>File Upload</title>
+    <style>
+        .chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        .message {
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .user-message {
+            background-color: #e2f9ff;
+            align-self: flex-end;
+        }
+
+        .system-message {
+            color: #777;
+        }
+        .input-text {
+            width: 80%; /* Adjust this value as needed */
+            padding: 5px;
+            margin: 0 auto; /* Center align */
+            border: 2px;
+            border-top: 1px solid #ccc;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>File Upload</h1>
+    <div class="chat-box" id="chat-box">
+        <div class="message system-message">
+            <p>Welcome to the File Upload Chat!</p>
+        </div>
+    </div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv">
+        <input type="submit" value="Upload">
+    </form>
+    
+    <form action="/message"  method="post">
+        <input type="text" class="input-text" name="message" placeholder="Type a message...">
+        <button type="submit" name="action" value="ask_ai">Ask AI</button>
+    </form>
+    
+
+    <script>
+        function addMessage(content, isUser) {
+            const chatBox = document.getElementById('chat-box');
+            const message = document.createElement('div');
+            message.classList.add('message');
+
+            if (isUser) {
+                message.classList.add('user-message');
+            }
+
+            message.innerHTML = `<p>${content}</p>`;
+            chatBox.appendChild(message);
+        }
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            addMessage(data.df_html, true);
+            addMessage(data.message, true);
+        })
+        .catch(error => console.error('Error:', error));
+            });
+    </script>
+</body>
+</html>
+
+
