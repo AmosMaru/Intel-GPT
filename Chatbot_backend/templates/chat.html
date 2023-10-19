@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+</head>
+<body>
+    <h1>Chat with AI</h1>
+    <h2>Response 1:</h2>
+    <p>{{ response_1 }}</p>
+    
+    <form action="/ask" method="POST">
+        <input type="hidden" name="file_path" value="dataframe.csv">
+        <input type="hidden" name="response_1" value="{{ response_1 }}">
+        <input type="text" name="input_text" required>
+        <button type="submit">Ask AI</button>
+    </form>
+    
+    {% if result %}
+    <h2>Result:</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+
+    <h2>Uploaded DataFrame:</h2>
+    {{ df.to_html() | safe }}
+</body>
+</html>
