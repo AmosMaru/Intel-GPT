@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import os
 import pandas as pd
-from intel import chat_with_csv  # Import your chat_with_csv function
+from intel import chat_with_csv
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Change this to a strong secret key
@@ -17,7 +17,6 @@ def index():
             return redirect(url_for('chat'))
     return render_template('index.html')
 
-    
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
     uploaded_file = session.get('uploaded_file')
@@ -27,10 +26,11 @@ def chat():
     if request.method == 'POST':
         prompt = request.form['prompt']
         df = pd.read_csv(uploaded_file)
-        result, img_str = chat_with_csv(df, prompt)  # Get both the result and the base64 string
-        return render_template('chat.html', result=result, img_data=img_str)
+        # Assuming 'chat_with_csv' is defined somewhere
+        result, img_str = chat_with_csv(df, prompt)  
+        return render_template('index.html', result=result, img_data=img_str)
 
-    return render_template('chat.html', result=None)
+    return render_template('index.html', result=None)
 
 if __name__ == '__main__':
     app.run(debug=True)

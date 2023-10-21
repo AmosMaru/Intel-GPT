@@ -9,19 +9,21 @@ from pandasai.llm.openai import OpenAI
 import os
 import pandas as pd
 from pandasai import PandasAI
-import matplotlib
-matplotlib.use('TkAgg')
+# import matplotlib
+# matplotlib.use('TkAgg')
 
 from dotenv import load_dotenv
 load_dotenv()
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
-# Define the path to the folder containing images
-image_folder_path = 'images'
+openai_api_key = ''
 
-# Get a list of image file paths in the folder
+
+
+# Define the path to the image folder
+image_folder_path = os.getcwd()  # This will get the current working directory
+
+# Get a list of image files
 image_files = [os.path.join(image_folder_path, file) for file in os.listdir(image_folder_path) if file.endswith(('.jpg', '.png', '.jpeg'))]
-
 
 interpreter.auto_run = True
 interpreter.api_key = openai_api_key
@@ -50,46 +52,35 @@ if uploaded_file is not None:
     
     buffer = io.StringIO()
     sys.stdout = buffer
-    interpreter.chat(f'Give me a quick rundown of this data{df}')
+    interpreter.chat(f'What is this dataset about{df}')
     sys.stdout = sys.__stdout__
     response_1 = buffer.getvalue()
     response_1_placeholder = st.empty()
     response_1_placeholder.success(response_1)
     
 
-    # buffer = io.StringIO()
-    # sys.stdout = buffer
-    # interpreter.chat(f'Write 3 short statements of plots which can be used from the dataset  {df}')
-    # sys.stdout = sys.__stdout__
-    # response_2 = buffer.getvalue()
-    # response_2_placeholder = st.empty()
-    # response_2_placeholder.success(response_2)
 
-    
-    st.info("Chat Below")
-    
+    st.info("Chat Below")               
     input_text = st.text_area("Enter your query")
-
     if input_text is not None:
         if st.button("Ask AI"):
             st.info("Your Query: "+input_text)
             result = chat_with_csv(df, input_text)
             result_placeholder = st.empty()
             result_placeholder.success(result)
-
-            # Display each image
-            for image_file in image_files:
-                st.image(image_file, caption=os.path.basename(image_file), use_column_width=True)
-
-            #interpreting the image 
-            # buffer = io.StringIO()
-            # sys.stdout = buffer
-            # interpreter.chat(f'Analyese image and give a short description about it ')
-            # sys.stdout = sys.__stdout__
-            # response_1 = buffer.getvalue()
-            # response_1_placeholder = st.empty()
-            # response_1_placeholder.success(response_1)
             
+        # Display the images in two columns
+        col1, col2 = st.columns(2)
+
+        for i, image_path in enumerate(image_files):
+            with open(image_path, "rb") as f:
+                image_stream = f.read()
+                if i % 2 == 0:
+                    with col1:
+                        st.image(image_stream, caption='Image', use_column_width=True)
+                else:
+                    with col2:
+                        st.image(image_stream, caption='Image', use_column_width=True)
 
 
 

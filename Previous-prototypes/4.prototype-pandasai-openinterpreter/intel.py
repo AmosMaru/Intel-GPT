@@ -7,14 +7,12 @@ import os
 import io
 import sys
 from pandasai.llm.openai import OpenAI
-from dotenv import load_dotenv
 from pandasai import PandasAI
 import base64
-
-
+from dotenv import load_dotenv
 load_dotenv()
 
-openai_api_key = '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'
+openai_api_key = os.environ["OPENAI_API_KEY"]
 image_folder_path = 'images'
 image_files = [os.path.join(image_folder_path, file) for file in os.listdir(image_folder_path) if file.endswith(('.jpg', '.png', '.jpeg'))]
 
