@@ -1,0 +1,11 @@
+Merge branch 'main' of https://github.com/AmosMaru/Intel-GPT
+
+# Conflicts:
+#	4.prototype-pandasai-openinterpreter/__pycache__/intel.cpython-311.pyc
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/.env
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/app.py
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/cache/cache_db.db
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/intel.py
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/requirements.txt
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/uploads/bikeSharingHour.csv
+#	Previous-prototypes/4.prototype-pandasai-openinterpreter/uploads/healthcare-dataset-stroke-data.csv
