@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Upload</h1>
+    <input id="file-input" type="file" name="file">
+    <!-- <button id="submit-button" type="submit">Upload</button> -->
+    <h1>Download</h1>
+    <ul id="files"></ul>
+    <button id="download-button" >Download Report</button>
+    <script>
+        const fileInput = document.querySelector('#file-input');
+        const submitButton = document.querySelector('#submit-button');
+        const downloadButton = document.querySelector('#download-button');
+        const listFiles = document.querySelector('#files');
+        fetch('http://127.0.0.1:5000/filelist').then((response) => response.json())
+        .then(response => {
+            console.log('Files',response);
+            response.map((file) => {
+                const li = document.createElement('li');
+                li.innerHTML = file;
+                listFiles.appendChild(li);
+            })
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        submitButton.addEventListener('click', () => {
+            console.log("Clicked button")
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            fetch('http://127.0.0.1:5000/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        });
+        downloadButton.addEventListener('click', () => {
+            console.log("Clicked button")
+            fetch('http://127.0.0.1:5000/download/tanafull.csv')
+            .then(response => response.blob())
+            .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tanafull.csv';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            })});
+    </script>
+</body>
+</html>
