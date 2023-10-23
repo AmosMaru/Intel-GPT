@@ -21,11 +21,7 @@ export default function Donut() {
       },
       title: {
         display: true,
-        text: filter.inventory
-        ?//inventory mode
-        'Weekly Average Net Sales'
-        ://sales mode
-        'Weekly Average Sales',
+        text: 'Donut Chart',
       },
     },
   };

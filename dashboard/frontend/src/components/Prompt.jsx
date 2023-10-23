@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { Context } from "../ContextProvider"
 import {baseURL} from "../data.json"
+import Upload from "./Upload"
 
 function Response({text}){
     return(
@@ -17,6 +18,7 @@ export default function Prompt(){
     let { Chats } = useContext(Context);
     let [chats, setChats] = Chats;
     let [query, setQuery] = useState("")
+    let [upload, setUpload] = useState(false)
 
     useEffect(()=>{
         fetch(`${baseURL}/getChats?id=12345`)
@@ -27,6 +29,14 @@ export default function Prompt(){
         })
         .catch((err) => console.log("server error"));
     },[])
+    useEffect(() => {
+        console.log("Clicked")
+        if (upload) {
+          document.getElementById("forms").style.visibility = "visible";
+        } else {
+          document.getElementById("forms").style.visibility = "hidden";
+        }
+      }, [upload]);
 
     let submit=(e)=>{
         e.preventDefault()
@@ -51,7 +61,7 @@ export default function Prompt(){
         });
     }
     return(
-    <div className="text-white">
+    <div class="p-4 rounded-lg border-gray-700 mt-14 lg:mt-16 lg:overflow-y-none text-white">
         <div className="min-h-[90%]">
             {
                 chats.map((chat)=>{
@@ -64,9 +74,13 @@ export default function Prompt(){
                 })
             }
         </div>
-        <div className="">
+        <div className="flex justify-center">
+            <button className="block w-6" onClick={e=>{setUpload(true)}}><img className="w-full" src="/upload.svg" alt="" /></button>
             <input className="text-black" type="text" placeholder="Enter query" value={query} onChange={e=>setQuery(e.target.value)} onKeyUp={e=>{if(e.key === "Enter")submit(e)}} />
-            <button className="w-6" onClick={e=>submit(e)}><img className="block w-full" src="/send.svg" alt="" /></button>
+            <button className="block w-6" onClick={e=>submit(e)}><img className="block w-full" src="/send.svg" alt="" /></button>
+        </div>
+        <div id="forms" className="bg-black bg-opacity-40 h-screen w-screen absolute top-0 left-0 flex justify-center items-center">
+            <Upload control={setUpload} />
         </div>
     </div>
     )
