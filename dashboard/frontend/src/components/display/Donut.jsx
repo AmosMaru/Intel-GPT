@@ -7,11 +7,11 @@ import { Context } from '../../ContextProvider';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+import {donut} from '../../display.json'
+
 
 export default function Donut() {
-  let { Filters, HotelData } = useContext(Context);
-  let [filter, setFilter] = Filters;
-  let [hotelData, setHotelData] = HotelData;
+  let { Data } = useContext(Context);
 
   let options = {
     maintainAspectRatio: false,
@@ -21,30 +21,18 @@ export default function Donut() {
       },
       title: {
         display: true,
-        text: 'Donut Chart',
+        text: donut.title,
       },
     },
   };
 
-  let labels = [...new Set(hotelData.map(item=>item[filter.depth.length==0?0:filter.depth[0]]))];
-
-  let compute = ()=>{
-    let data = []
-    for(let i=0;i<labels.length;i++){
-      let sum = 0
-      hotelData.forEach(row => {if(row[filter.depth.length==0?0:filter.depth[0]]==labels[i]) sum+=row[3]});
-      data.push(sum/7)
-    }
-    return data
-  }
-
   let data = {
-    labels: labels,
+    labels: donut.labels,
     datasets: [
       {
-        data: compute(),
-        backgroundColor: ['#2563eb','#4338ca','#172554','#1d4ed8'],
-        borderColor: ['#172554','#2e1065','#042f2e','#1d4ed8'],
+        data: donut.datasets,
+        backgroundColor: ['#1d4ed8','#ffff00','#ee0000'],
+        borderColor: ['#3e95cd','#2e1065','#042f2e'],
         borderWidth: 1,
       },
     ],
