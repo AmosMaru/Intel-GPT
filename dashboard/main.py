@@ -13,14 +13,15 @@ import pandas as pd
 #   database="myuskezvmard4yzb"
 # )
 
-con = mysql.connector.connect(
-  host="localhost",
-  user="sammy",
-  password="sammy",
-  database="IntelGPT"
-)
-cur = con.cursor(buffered=True)
+# con = mysql.connector.connect(
+#   host="localhost",
+#   user="sammy",
+#   password="sammy",
+#   database="IntelGPT"
+# )
+# cur = con.cursor(buffered=True)
 
+cur = None
 app = Flask(__name__, static_folder='frontend/dist')
 app.secret_key = "secret"
 app.config['SESSION_TYPE'] = 'filesystem'
