@@ -7,8 +7,6 @@ import Pie from "./display/Pie"
 import Donut from "./display/Donut"
 import Table from "./display/Table"
 import Stats from "./display/Stats"
-import Filter from "./Filter"
-import Prompt from "./Prompt"
 import Upload from "./Upload"
 
 export default function Home(){
@@ -20,22 +18,23 @@ export default function Home(){
     return (
         <div class="p-4 rounded-lg border-gray-700 mt-14 lg:mt-16 lg:overflow-y-none">
             <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
-                <div className="lg:col-span-2 flex items-center justify-center mb-4 rounded bg-gray-800 h-96">
-                    {choice === "bar" ? <Bur /> : null}
-                    {choice === "line" ? <Lyn /> : null}
-                    {choice === "pie" ? <Pie /> : null}
-                    {choice === "donut" ? <Donut /> : null}
-                    {choice === "stats" ? <Stats /> : null}
+                <div className="flex items-center justify-center mb-4 rounded bg-gray-800 h-96">
+                <Lyn />
                 </div>
-                <div className="lg:order-first mb-4 w-full h-full bg-gray-800">
-                <Prompt/>
+                <div className="flex items-center justify-center mb-4 rounded bg-gray-800 h-96">
+                <Bur />
+                </div>
+                <div className="flex items-center justify-center mb-4 rounded bg-gray-800 h-96">
+                <Lyn />
                 </div>
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 lg:mt-6">
                 <div className="lg:col-span-2 flex rounded bg-gray-800 overflow-x-scroll overflow-y-scroll max-h-96">
                     <Table/>
                 </div>
-                <Upload/>
+                <div className="flex items-center justify-center mb-4 rounded bg-gray-800 h-96">
+                <Donut />
+                </div>
             </div>
         </div>
     )

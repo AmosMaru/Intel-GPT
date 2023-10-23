@@ -40,11 +40,7 @@ export default function Bur() {
       },
       title: {
         display: true,
-        text: filter.inventory
-              ?//inventory mode
-              'Opening vs Closing Stock'
-              ://sales mode
-              `${filter.depth.length<2?['Hotels','Sections','Supervisor','Waitstuff'][filter.depth.length==0?0:filter.depth[0]]:filter.depth[1]} Variance`,
+        text: 'Bar Chart'
       },
     },
   };

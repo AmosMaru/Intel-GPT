@@ -96,7 +96,6 @@ def upload():
         data_df = pd.read_csv(file, sep=",", header=0)
         # file.save(file.filename)  # Save the file to disk
         print(data_df.head())
-        print({"status": "success", "response": list(data_df.columns.values)})
         return {"status": "success", "response": list(data_df.columns.values)}
     else:
         return {"status": "error", "response": "No file was uploaded"}

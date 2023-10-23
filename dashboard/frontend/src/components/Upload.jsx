@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../ContextProvider";
 import { baseURL } from "../data.json";
 
-export default function Upload() {
+export default function Upload({control}) {
     let { Data } = useContext(Context);
     let [data, setData] = Data;
     let handleDrop = (event) => {
@@ -28,6 +28,7 @@ export default function Upload() {
                 rows.shift();
                 console.log(rows);
                 setData({columns:data.response,values:rows})
+                control(false)
             }
         }).catch((error) => {
             console.error("There was a problem with the fetch operation:", error);
@@ -57,7 +58,6 @@ export default function Upload() {
             .catch(error => {
                 console.error('Error uploading file:', error);
             });
-            // For this example, just log the file details
             console.log('File uploaded:', file.name);
         } else {
             console.error('No file selected');
@@ -66,11 +66,14 @@ export default function Upload() {
 
   return (
     <div
-      className="ml-2 bg-gray-800 text-white"
+      className="ml-2 bg-gray-800 text-white w-96 h-96 flex flex-col items-center justify-center rounded-xl border-4 border-gray-700"
       onDrop={handleDrop}
       onDragOver={handleDragOver}
     >
-      <img className="block w-24" src="/upload.svg" alt="" />
+        <button className="block w-full text-xl text-right bg-gray-800 px-4" onClick={(e) => control(false)}>
+        X
+        </button>
+      <img className="block w-24" src="/upload-loop.svg" alt="" />
       <div>Drag file</div>
       <input id="file-input" type="file" name="file"/>
     </div>
