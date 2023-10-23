@@ -21,8 +21,11 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+import {line} from '../../display.json'
 
-let colours = ['#1d4ed8','#5b21b6','#3730a3','']
+console.log(line);
+
+let colours = ['#3e95cd','#ffff00','#ee0000','']
 export default function Lyn() {
   let { Data } = useContext(Context);
   let [data, setData] = Data;
@@ -37,7 +40,7 @@ export default function Lyn() {
       },
       title: {
         display: true,
-        text: 'Line Chart'
+        text: line.title,
       },
     },
     scales: {
@@ -48,11 +51,16 @@ export default function Lyn() {
   };
 
 
-let labels = [0,1,2,3,4,5,6,7,8,9,10]
-
-  const input = {
-    labels,
-    datasets: [],
+  let input = {
+    labels:line.labels,
+    datasets: line.labels.map((item,i) => {
+      return({
+        label: item,
+        data: line.datasets[i],
+        cubicInterpolationMode: "monotone",
+        borderColor: colours[i],
+      })
+    }),
   };
 
   return(
