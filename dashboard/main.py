@@ -5,6 +5,15 @@ import mysql.connector
 import hashlib
 import csv
 import pandas as pd
+import io
+import sys
+import interpreter
+from dotenv import load_dotenv
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
+interpreter.auto_run = True
+interpreter.api_key = openai_api_key
+data_df = None
 
 # con = mysql.connector.connect(
 #   host="q0h7yf5pynynaq54.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
@@ -44,7 +53,7 @@ def test():
 def signup():
     data = request.get_json()
     cur.execute("INSERT INTO users (role, username, name, email, password, phone) VALUES (%s, %s, %s, %s, %s, %s)", (data["role"], data["username"], data["name"], data["email"], hashlib.sha256(data["password"].encode()).hexdigest(), data['phone']))
-    con.commit()
+    cur.commit() #change from con 
     return {"status":"success"}
 
 @app.route("/login", methods=["POST"])
@@ -71,13 +80,37 @@ def sessioncheck():
 def logout():
     session.clear()
     return {"status":"success"}
+@app.route("/upload", methods=["POST"])
+def upload():
+    global data_df  # Use the global keyword to access the global variable
+    
+    file = request.files["file"]
+    if file:
+        data_df = pd.read_csv(file, sep=",", header=0)
+        print(data_df.head())
+        return {"status": "success", "response": list(data_df.columns.values)}
+    else:
+        return {"status": "error", "response": "No file was uploaded"}
 
 @app.route("/query", methods=["POST"])
 def query():
+    global data_df  # Use the global keyword to access the global variable
     data = request.get_json()
-    print(data["query"])
-    return {"status":"success","response":"responding..."}
+    user_query = data["query"]
 
+    if data_df is not None:
+        # Process user message and get response
+        buffer = io.StringIO()
+        sys.stdout = buffer
+        interpreter.chat(f'''{user_query} reference to this dataset {data_df}''')
+        sys.stdout = sys.__stdout__
+        results = buffer.getvalue()
+
+        return {"status": "success", "response": results}
+    else:
+        return {"status": "error", "response": "No dataset available"}
+
+    
 @app.route("/getChats", methods=["GET"])
 def chats():
     data = request.args
@@ -90,16 +123,6 @@ def chats():
     ]*7
     return {"status":"success","response":demo}
 
-@app.route("/upload", methods=["POST"])
-def upload():
-    file = request.files["file"]
-    if file:
-        data_df = pd.read_csv(file, sep=",", header=0)
-        # file.save(file.filename)  # Save the file to disk
-        print(data_df.head())
-        return {"status": "success", "response": list(data_df.columns.values)}
-    else:
-        return {"status": "error", "response": "No file was uploaded"}
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000),host="0.0.0.0")
