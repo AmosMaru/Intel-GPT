@@ -102,7 +102,7 @@ def query():
         # Process user message and get response
         buffer = io.StringIO()
         sys.stdout = buffer
-        interpreter.chat(f'''{user_query} reference to this dataset {data_df}''')
+        interpreter.chat(f'''{user_query} reference to this dataset {data_df}.''')
         sys.stdout = sys.__stdout__
         results = buffer.getvalue()
 
