@@ -113,25 +113,24 @@ def open_interpreter(user_query):
     return 'Open_interpreter'
 
 def pandai_interpreter(user_query):
-    llm = OpenAI(api_token=openai_api_key)
-    pandas_ai = PandasAI(llm)
-    result = pandas_ai.run(data_df, prompt=user_query)
-    return result
+#     llm = OpenAI(api_token=openai_api_key)
+#     pandas_ai = PandasAI(llm)
+#     result = pandas_ai.run(data_df, prompt=user_query)
+    return 'Pandasai'
 
 def llava_interpreter(user_query):
-    # Assuming "llava" is a library for a specific directory
-    # Implement your llava interpreter logic here
-    return "llava"
+    if os.path.isfile("dashboard/image/temp_chart.png"):
+        return "llava"
+    else:
+        return pandai_interpreter(user_query)
 
 def determine_interpreter(user_query):
-    keywords = ["graph", "plot", "dataset","data","column","columns","rows","row","table","tables","chart","charts","visualize","visualise","visualisation","visualization","visualisations","visualizations","show","display","displaying","displayed","show"]
-    
-    if any(keyword in user_query.lower() for keyword in keywords):
-        if os.path.exists("llama.cpp"):
-            return pandai_interpreter
-        else:
-            return open_interpreter
-
+    if "plot" in user_query.lower():
+        return pandai_interpreter
+    elif "chat" in user_query.lower():
+        return open_interpreter
+    elif 'image' in user_query.lower():
+        return llava_interpreter
     else:
         return open_interpreter
 
@@ -146,11 +145,7 @@ def query():
         response = interpreter(user_query)
         return {"status": "success", "response": response}
     else:
-        return {"status": "error", "response": "Upload a dataset"}
-
-
-    
-
+        return {"status": "error", "response": "Upload your Dataset.csv first"}
     
 @app.route("/getChats", methods=["GET"])
 def chats():

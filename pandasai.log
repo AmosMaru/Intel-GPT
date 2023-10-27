@@ -244,3 +244,38 @@ def analyze_data(dfs: list[pd.DataFrame]) ->dict:
 2023-10-27 23:58:16 [INFO] Answer: {'type': 'text', 'value': 'The happiest country in the data is Delhi.'}
 2023-10-27 23:58:16 [INFO] Executed in: 21.793105363845825s
 2023-10-27 23:58:16 [INFO] 127.0.0.1 - - [27/Oct/2023 23:58:16] "POST /query HTTP/1.1" 200 -
+2023-10-28 00:04:21 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:04:21 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:04:21 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:04:44 [INFO] Question: data
+2023-10-28 00:04:44 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:04:44 [INFO] Prompt ID: 54d12929-2465-483e-b143-d6637c0bc4fc
+2023-10-28 00:04:46 [INFO] Question: data
+2023-10-28 00:04:46 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:04:46 [INFO] Prompt ID: 29f34783-09ac-4bfd-a709-54ea69c60b1d
+2023-10-28 00:04:50 [INFO] 127.0.0.1 - - [28/Oct/2023 00:04:50] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-28 00:04:50 [INFO] Question: data
+2023-10-28 00:04:50 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:04:50 [INFO] Prompt ID: 8154c80a-ddda-4258-9cf8-96c8110c58e3
+2023-10-28 00:04:50 [INFO] Question: data
+2023-10-28 00:04:50 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:04:50 [INFO] Prompt ID: ab572f79-a272-4202-93b4-8675fddef2b5
+2023-10-28 00:04:50 [INFO] Question: data
+2023-10-28 00:04:50 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:04:50 [INFO] Prompt ID: 6c648784-236e-4c4d-9026-5bc6b35751cf
+2023-10-28 00:04:53 [INFO] Question: dataset
+2023-10-28 00:04:53 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:04:53 [INFO] Prompt ID: 29842ef7-d4a9-4ba3-9d60-e92082137924
+2023-10-28 00:04:59 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:04:59 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:04:59 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:04:59 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:05:09 [INFO] Question: dataset
+2023-10-28 00:05:09 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:05:09 [INFO] Prompt ID: d2266249-7c30-4c7d-bb42-86d2a7bc0c49
+2023-10-28 00:05:12 [INFO] Question: dataset
+2023-10-28 00:05:12 [INFO] Running PandasAI with openai LLM...
+2023-10-28 00:05:12 [INFO] Prompt ID: 5d037480-e651-4c56-b9b2-9faa71d70260
+2023-10-28 00:05:27 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:05:27 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
+2023-10-28 00:05:27 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\dashboard\\main.py', reloading
