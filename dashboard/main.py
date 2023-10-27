@@ -8,6 +8,13 @@ import pandas as pd
 import io
 import sys
 import interpreter
+
+import os
+import pandas as pd
+from pandasai.llm.openai import OpenAI
+from pandasai import PandasAI
+
+
 from dotenv import load_dotenv
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -92,6 +99,42 @@ def upload():
     else:
         return {"status": "error", "response": "No file was uploaded"}
 
+
+# Global variable to store the dataset
+data_df = None
+
+def open_interpreter(user_query):
+    # Process user message and get response
+    # buffer = io.StringIO()
+    # sys.stdout = buffer
+    # interpreter.chat(f'{user_query}')
+    # sys.stdout = sys.__stdout__
+    # results = buffer.getvalue()
+    return 'Open_interpreter'
+
+def pandai_interpreter(user_query):
+    llm = OpenAI(api_token=openai_api_key)
+    pandas_ai = PandasAI(llm)
+    result = pandas_ai.run(data_df, prompt=user_query)
+    return result
+
+def llava_interpreter(user_query):
+    # Assuming "llava" is a library for a specific directory
+    # Implement your llava interpreter logic here
+    return "llava"
+
+def determine_interpreter(user_query):
+    keywords = ["graph", "plot", "dataset","data","column","columns","rows","row","table","tables","chart","charts","visualize","visualise","visualisation","visualization","visualisations","visualizations","show","display","displaying","displayed","show"]
+    
+    if any(keyword in user_query.lower() for keyword in keywords):
+        if os.path.exists("llama.cpp"):
+            return pandai_interpreter
+        else:
+            return open_interpreter
+
+    else:
+        return open_interpreter
+
 @app.route("/query", methods=["POST"])
 def query():
     global data_df  # Use the global keyword to access the global variable
@@ -99,16 +142,14 @@ def query():
     user_query = data["query"]
 
     if data_df is not None:
-        # Process user message and get response
-        buffer = io.StringIO()
-        sys.stdout = buffer
-        interpreter.chat(f'''{user_query} reference to this dataset {data_df}.''')
-        sys.stdout = sys.__stdout__
-        results = buffer.getvalue()
-
-        return {"status": "success", "response": results}
+        interpreter = determine_interpreter(user_query)
+        response = interpreter(user_query)
+        return {"status": "success", "response": response}
     else:
-        return {"status": "error", "response": "No dataset available"}
+        return {"status": "error", "response": "Upload a dataset"}
+
+
+    
 
     
 @app.route("/getChats", methods=["GET"])
@@ -117,12 +158,18 @@ def chats():
     print(data['id'])
     demo = [
         {
-            "query":"question",
-            "response":"answer"
+            "query":"User",
+            "response":"Intel-GPT"
         }
-    ]*7
+    ]
     return {"status":"success","response":demo}
 
+@app.route("/getChatz", methods=["GET"])
+def qwerty():
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000),host="0.0.0.0")
+
+
+    
