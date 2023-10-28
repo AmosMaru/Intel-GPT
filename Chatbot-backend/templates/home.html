@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatGPT UI</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eaeaea;
+      padding: 20px;
+      display: flex;
+      flex-direction: column; /* Set main container to column layout */
+      height: 100vh; /* Set container height to fill viewport */
+    }
+ 
+
+.chat-container {
+    max-width: 80%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-left: auto; /* Move to the right */
+}
+
+.chat-container .message:last-child {
+  margin-top: auto; /* Push the last message to the bottom */
+}
+
+    
+
+    .message {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 70%;
+      justify-content: flex-end;
+    }
+
+    .user-message {
+  background-color: #00BFFF;
+  color: white;
+  align-self: flex-start; /* Change align-self to flex-start */
+  order: 1;
+}
+
+    .system-message {
+
+      background-color: #e1f5fe;
+      align-self: flex-end;
+      order: 1;
+    }
+
+    .input-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end; /* Move input bar to the right */
+}
+
+    .input-bar input {
+      width: 1100px;
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+
+    }
+    
+
+    .input-bar button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background-color: #00BFFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="chat-container">
+      <!-- Displaying Uploaded Documents -->
+      {% if last_document %}
+<div class="message user-message">
+    Uploaded: {{ last_document.document.name }}
+</div>
+{% endif %}
+
+      <!-- Displaying DataFrame Contents -->
+      {% if df is not empty %}
+      <div class="message system-message">
+        DataFrame Contents: {{ df.to_html|safe }}
+      </div>
+      {% else %}
+      <div class="message system-message">
+        No file contents to display.
+      </div>
+      {% endif %}
+
+      <!-- Displaying Results -->
+      {% if results is not None %}
+      <div class="message system-message">
+        {{ results }}
+      </div>
+      {% endif %}
+
+    
+      <div class="message user-message">
+        {% for message in chat_history %}
+            {% if message.user %}
+                <p><strong>User:</strong> {{ message.message }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class="message system-message">
+        {% for message in chat_history %}
+            {% if not message.user %}
+                <p><strong>Inetl-AI:</strong> {{ message.message }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    </div>
+  
+
+    <!-- Upload Form -->
+<div class="input-bar">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="id_document">Upload:</label>
+    {{ form.document }}
+    <button type="submit">Upload</button>
+  </form>
+</div>
+
+    
+    <!-- Input Form -->
+    <div class="input-bar">
+      
+      
+      <form method="post">
+        {% csrf_token %}
+        <input id="input-text-bar" type="text" name="name"  placeholder="Type your message..."/>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Automatically scroll down to the bottom of the chat container
+    document.addEventListener('DOMContentLoaded', function() {
+      var chatContainer = document.querySelector('.chat-container');
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    });
+  </script>
+</body>
+</html>
