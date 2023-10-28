@@ -116,10 +116,10 @@ def open_interpreter(user_query):
     return 'Open_interpreter'
 
 def pandai_interpreter(user_query):
-    # llm = OpenAI(api_token=openai_api_key)
-    # pandas_ai = PandasAI(llm)
-    # result = pandas_ai.run(data_df, prompt=user_query)
-    return 'pandasai'
+    llm = OpenAI(api_token=openai_api_key)
+    pandas_ai = PandasAI(llm)
+    result = pandas_ai.run(data_df, prompt=user_query)
+    return 'result'
 
 def open_interpreter_2(user_query):
     # Process user message and get response
@@ -130,21 +130,22 @@ def open_interpreter_2(user_query):
     # results = buffer.getvalue()
     return 'open_interpreter_2'
 
-def llava_interpreter(user_query):
-    if os.path.isfile("temp_chart.png"):
-        return "llava"
-    else:
-        return pandai_interpreter(user_query)
+# def llava_interpreter(user_query):
+#     if os.path.isfile("temp_chart.png"):
+#         return "llava"
+#     else:
+#         return pandai_interpreter(user_query)
 
 def determine_interpreter(user_query):
-    if "1" in user_query.lower(): # Pandasai to generete graph 
-        return pandai_interpreter
-    elif "2" in user_query.lower():# open_interperter to interacte with dataset
-        return open_interpreter_2
-    elif '3' in user_query.lower():# llava to interprate images
-        return llava_interpreter
-    else:
-        return open_interpreter_2
+    # if "1" in user_query.lower(): # Pandasai to generete graph 
+    #     return pandai_interpreter
+    # elif "2" in user_query.lower():# open_interperter to interacte with dataset
+    #     return open_interpreter_2
+    # elif '3' in user_query.lower():# llava to interprate images
+    #     return llava_interpreter
+    # else:
+        # return open_interpreter_2
+    return pandai_interpreter
 
 @app.route("/query", methods=["POST"])
 def query():
@@ -156,13 +157,13 @@ def query():
         interpreter = determine_interpreter(user_query)
         response = interpreter(user_query)
         
-        if os.path.isfile("temp_chart.png"):  # Check if the image file exists
-            print("!!\tOne image coming up\t!!")
-            return {
-                "status": "success",
-                "response": response,
-                "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')
-            }
+        # if os.path.isfile("temp_chart.png"):  # Check if the image file exists
+        #     print("!!\tOne image coming up\t!!")
+        #     return {
+        #         "status": "success",
+        #         "response": response,
+        #         "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')
+        #     }
             
         return {"status": "success", "response": response}
     else:
