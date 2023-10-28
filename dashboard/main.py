@@ -113,10 +113,19 @@ def open_interpreter(user_query):
     return 'Open_interpreter'
 
 def pandai_interpreter(user_query):
-#     llm = OpenAI(api_token=openai_api_key)
-#     pandas_ai = PandasAI(llm)
-#     result = pandas_ai.run(data_df, prompt=user_query)
-    return 'Pandasai'
+    llm = OpenAI(api_token=openai_api_key)
+    pandas_ai = PandasAI(llm)
+    result = pandas_ai.run(data_df, prompt=user_query)
+    return result
+
+def open_interpreter_2(user_query):
+    # Process user message and get response
+    buffer = io.StringIO()
+    sys.stdout = buffer
+    interpreter.chat(f'{user_query} use this dataset {data_df}')
+    sys.stdout = sys.__stdout__
+    results = buffer.getvalue()
+    return results
 
 def llava_interpreter(user_query):
     if os.path.isfile("dashboard/image/temp_chart.png"):
@@ -125,14 +134,14 @@ def llava_interpreter(user_query):
         return pandai_interpreter(user_query)
 
 def determine_interpreter(user_query):
-    if "plot" in user_query.lower():
+    if "1" in user_query.lower(): # Pandasai to generete graph 
         return pandai_interpreter
-    elif "chat" in user_query.lower():
-        return open_interpreter
-    elif 'image' in user_query.lower():
+    elif "2" in user_query.lower():# open_interperter to interacte with dataset
+        return open_interpreter_2
+    elif '3' in user_query.lower():# llava to interprate images
         return llava_interpreter
     else:
-        return open_interpreter
+        return open_interpreter_2
 
 @app.route("/query", methods=["POST"])
 def query():
