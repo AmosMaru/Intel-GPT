@@ -113,19 +113,19 @@ def open_interpreter(user_query):
     return 'Open_interpreter'
 
 def pandai_interpreter(user_query):
-    # llm = OpenAI(api_token=openai_api_key)
-    # pandas_ai = PandasAI(llm)
-    # result = pandas_ai.run(data_df, prompt=user_query)
-    return 'Pandai_interpreter'
+    llm = OpenAI(api_token=openai_api_key)
+    pandas_ai = PandasAI(llm)
+    result = pandas_ai.run(data_df, prompt=user_query)
+    return result
 
 def open_interpreter_2(user_query):
     # Process user message and get response
-    # buffer = io.StringIO()
-    # sys.stdout = buffer
-    # interpreter.chat(f'{user_query} use this dataset {data_df}')
-    # sys.stdout = sys.__stdout__
-    # results = buffer.getvalue()
-    return 'Open_interpreter_2'
+    buffer = io.StringIO()
+    sys.stdout = buffer
+    interpreter.chat(f'{user_query} use this dataset {data_df}')
+    sys.stdout = sys.__stdout__
+    results = buffer.getvalue()
+    return results
 
 def llava_interpreter(user_query):
     if os.path.isfile("dashboard/image/temp_chart.png"):
