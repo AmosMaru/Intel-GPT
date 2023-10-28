@@ -119,7 +119,7 @@ def pandai_interpreter(user_query):
     # llm = OpenAI(api_token=openai_api_key)
     # pandas_ai = PandasAI(llm)
     # result = pandas_ai.run(data_df, prompt=user_query)
-    return 'pandai_interpreter'
+    return 'pandasai'
 
 def open_interpreter_2(user_query):
     # Process user message and get response
@@ -155,9 +155,15 @@ def query():
     if data_df is not None:
         interpreter = determine_interpreter(user_query)
         response = interpreter(user_query)
-        if sendImage:
+        
+        if os.path.isfile("temp_chart.png"):  # Check if the image file exists
             print("!!\tOne image coming up\t!!")
-            return {"status": "success", "response": response, "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')}
+            return {
+                "status": "success",
+                "response": response,
+                "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')
+            }
+            
         return {"status": "success", "response": response}
     else:
         return {"status": "error", "response": "Upload your Dataset.csv first"}
