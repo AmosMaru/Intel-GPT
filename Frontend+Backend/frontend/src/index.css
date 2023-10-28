@@ -2,34 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 /* width */
-::-webkit-scrollbar {
-    width: 5px;
+
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;700&display=swap");
+.quicksand {
+  font-family: "Quicksand", sans-serif;
 }
-  
+body ::-webkit-scrollbar {
+  width: 5px;
+}
+
 /* Track */
 ::-webkit-scrollbar-track {
-    background: none;
+  background: none;
 }
-  
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #111827;
+  background: #111827;
 }
-  
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type=number]{
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
-#menu{
-    display: none;
+#menu {
+  display: none;
 }
