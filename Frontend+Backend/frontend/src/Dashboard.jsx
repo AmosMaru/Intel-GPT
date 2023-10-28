@@ -10,7 +10,7 @@ import { baseURL } from "./data.json";
 export default function Dashboard() {
   let { User } = useContext(Context);
   let [user, setUser] = User;
-  let [page, setPage] = useState("home");
+  let [page, setPage] = useState("bo");
 
   let logout = (e) => {
     e.preventDefault();
@@ -145,10 +145,16 @@ export default function Dashboard() {
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-gray-800">
           <ul className="space-y-2 font-medium">
+            <li onClick={(e) => setPage("bot")}>
+              <button className={`p-2 w-full text-left rounded-lg text-white hover:bg-gray-700 ${page === "bot" && "bg-gray-700"}`}>
+                <img className="w-6 inline" src="/message.svg" alt="" />
+                <span className="flex-1 ml-3 whitespace-nowrap">ChatBOT</span>
+              </button>
+            </li>
             <li onClick={(e) => setPage("home")}>
               <button
                 href="#"
-                className="flex items-center p-2  rounded-lg text-white hover:bg-gray-700"
+                className={`flex items-center p-2 w-full rounded-lg text-white hover:bg-gray-700 ${page === "home" && "bg-gray-700"}`}
               >
                 <svg
                   aria-hidden="true"
@@ -163,14 +169,8 @@ export default function Dashboard() {
                 <span className="ml-3">Dashboard</span>
               </button>
             </li>
-            <li onClick={(e) => setPage("bot")}>
-              <button className="flex items-center p-2  rounded-lg text-white hover:bg-gray-700">
-                <img className="w-6" src="/message.svg" alt="" />
-                <span className="flex-1 ml-3 whitespace-nowrap">ChatBOT</span>
-              </button>
-            </li>
             <li onClick={(e) => setPage("download")}>
-              <button className="flex items-center p-2  rounded-lg text-white hover:bg-gray-700">
+              <button className={`flex items-center p-2 w-full text-left rounded-lg text-white hover:bg-gray-700 ${page === "download" && "bg-gray-700"}`}>
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 transition duration-75 text-gray-400 group-hover:text-white"
@@ -184,12 +184,6 @@ export default function Dashboard() {
                 <span className="flex-1 ml-3 whitespace-nowrap">Download</span>
               </button>
             </li>
-            <li onClick={(e) => setPage("settings")}>
-              <button className="flex items-center p-2  rounded-lg text-white hover:bg-gray-700">
-                <img className="w-6" src="/settings.svg" alt="" />
-                <span className="flex-1 ml-3 whitespace-nowrap">Settings</span>
-              </button>
-            </li>
           </ul>
         </div>
       </aside>
@@ -201,7 +195,6 @@ export default function Dashboard() {
         className="sm:ml-64 bg-gray-700 h-screen overflow-y-scroll"
       >
         {page === "home" && <Home />}
-        {page === "settings" && <Settings />}
         {page === "download" && <Download />}
         {page === "bot" && <Prompt />}
       </div>

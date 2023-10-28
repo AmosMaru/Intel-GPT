@@ -35,13 +35,11 @@ export default function Login() {
             "user",
             JSON.stringify({
               username: data.response.username,
-              role: data.response.role,
               email: data.response.email,
             })
           );
           setUser({
             username: data.response.username,
-            role: data.response.role,
             email: data.response.email,
           });
         } else if (data.status === "error") {
@@ -63,7 +61,6 @@ export default function Login() {
         password: password,
         name: name,
         email: email,
-        role: role,
         phone: phone,
       }),
     })
@@ -173,28 +170,6 @@ export default function Login() {
                     className="pl-2 text-black block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-0 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="key"
-                  className="block text-sm font-medium leading-6"
-                >
-                  Role
-                </label>
-                <select
-                  className="pl-2 text-black block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-0 sm:text-sm sm:leading-6"
-                  value={role}
-                  onChange={(event) => {
-                    setRole(event.target.value);
-                  }}
-                >
-                  <option value={1}>Sales executive</option>
-                  <option value={3}>Clerk</option>
-                  <option value={2}>Accountant</option>
-                  <option value={4}>Supervisor</option>
-                  <option value={5}>Manager</option>
-                  <option value={6}>Admin</option>
-                </select>
               </div>
             </>
           )}

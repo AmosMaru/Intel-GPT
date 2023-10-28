@@ -19,6 +19,7 @@ export default function Prompt(){
     let [chats, setChats] = Chats;
     let [query, setQuery] = useState("")
     let [upload, setUpload] = useState(false)
+    let [image, setImage] = useState(null)
 
     useEffect(()=>{
         fetch(`${baseURL}/getChats?id=12345`)
@@ -54,6 +55,11 @@ export default function Prompt(){
         .then((data) => {
           console.log(data);
           setChats([...chats,{query:query,response:data.response}])
+          if(data.image){
+              setImage(<img src={'data:image/png;base64,'+data.image} alt="" />)
+          }else{
+            setImage(null)
+          }
         })
         .catch((err) => {
             console.log("server error");
@@ -69,6 +75,7 @@ export default function Prompt(){
                         <>
                         <Query text={chat.query}/>
                         <Response text={chat.response}/>
+                        {image}
                         </>
                     )
                 })

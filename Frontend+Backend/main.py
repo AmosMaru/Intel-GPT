@@ -8,11 +8,13 @@ import pandas as pd
 import io
 import sys
 import interpreter
-
+import base64
 import os
 import pandas as pd
 from pandasai.llm.openai import OpenAI
 from pandasai import PandasAI
+
+sendImage = True
 
 
 from dotenv import load_dotenv
@@ -29,15 +31,16 @@ data_df = None
 #   database="myuskezvmard4yzb"
 # )
 
-# con = mysql.connector.connect(
-#   host="localhost",
-#   user="sammy",
-#   password="sammy",
-#   database="IntelGPT"
-# )
-# cur = con.cursor(buffered=True)
+#CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), name VARCHAR(255), email VARCHAR(255), password VARCHAR(64), phone INT)
 
-cur = None
+con = mysql.connector.connect(
+  host="localhost",
+  user="sammy",
+  password="sammy",
+  database="intelGPT"
+)
+cur = con.cursor(buffered=False)
+
 app = Flask(__name__, static_folder='frontend/dist')
 app.secret_key = "secret"
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -59,8 +62,8 @@ def test():
 @app.route("/signup", methods=["POST"])
 def signup():
     data = request.get_json()
-    cur.execute("INSERT INTO users (role, username, name, email, password, phone) VALUES (%s, %s, %s, %s, %s, %s)", (data["role"], data["username"], data["name"], data["email"], hashlib.sha256(data["password"].encode()).hexdigest(), data['phone']))
-    cur.commit() #change from con 
+    cur.execute("INSERT INTO users (username, name, email, password, phone) VALUES (%s, %s, %s, %s, %s)", (data["username"], data["name"], data["email"], hashlib.sha256(data["password"].encode()).hexdigest(), data['phone']))
+    con.commit() #change from con 
     return {"status":"success"}
 
 @app.route("/login", methods=["POST"])
@@ -71,7 +74,7 @@ def login():
     if user:
         session["user"] = user
         print("### Session var :: ",session["user"])
-        return {"status":"success","response":{ "role":user[1], "username":user[2], "email":user[4]}}
+        return {"status":"success","response":{"username":user[2], "email":user[4]}}
     else:
         return {"status":"error","response":"Invalid username or password"}
 
@@ -113,22 +116,22 @@ def open_interpreter(user_query):
     return 'Open_interpreter'
 
 def pandai_interpreter(user_query):
-    llm = OpenAI(api_token=openai_api_key)
-    pandas_ai = PandasAI(llm)
-    result = pandas_ai.run(data_df, prompt=user_query)
-    return result
+    # llm = OpenAI(api_token=openai_api_key)
+    # pandas_ai = PandasAI(llm)
+    # result = pandas_ai.run(data_df, prompt=user_query)
+    return 'pandai_interpreter'
 
 def open_interpreter_2(user_query):
     # Process user message and get response
-    buffer = io.StringIO()
-    sys.stdout = buffer
-    interpreter.chat(f'{user_query} use this dataset {data_df}')
-    sys.stdout = sys.__stdout__
-    results = buffer.getvalue()
-    return results
+    # buffer = io.StringIO()
+    # sys.stdout = buffer
+    # interpreter.chat(f'{user_query} use this dataset {data_df}')
+    # sys.stdout = sys.__stdout__
+    # results = buffer.getvalue()
+    return 'open_interpreter_2'
 
 def llava_interpreter(user_query):
-    if os.path.isfile("dashboard/image/temp_chart.png"):
+    if os.path.isfile("Frontend+Backend/temp_chart.png"):
         return "llava"
     else:
         return pandai_interpreter(user_query)
@@ -152,6 +155,9 @@ def query():
     if data_df is not None:
         interpreter = determine_interpreter(user_query)
         response = interpreter(user_query)
+        if sendImage:
+            print("!!\tOne image coming up\t!!")
+            return {"status": "success", "response": response, "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')}
         return {"status": "success", "response": response}
     else:
         return {"status": "error", "response": "Upload your Dataset.csv first"}
@@ -168,9 +174,20 @@ def chats():
     ]
     return {"status":"success","response":demo}
 
-@app.route("/getChatz", methods=["GET"])
-def qwerty():
-    pass
+@app.route("/imageList", methods=["GET"])
+def imageList():
+    #list all images in the folder
+    path = "image/amos/"
+    files = os.listdir(path)
+    print(files)
+    return {"status":"success","response":files}
+
+@app.route('/image/<path>', methods=['GET'])
+def get_image(path):
+    # Path to your image file
+    image_path = 'image/amos/'+path
+    print(image_path)
+    return send_file(image_path, mimetype='image/jpg')
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000),host="0.0.0.0")
