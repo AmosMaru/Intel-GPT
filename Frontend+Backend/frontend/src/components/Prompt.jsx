@@ -56,7 +56,7 @@ export default function Prompt(){
           console.log(data);
           setChats([...chats,{query:query,response:data.response}])
           if(data.image){
-              setImage(<img src={'data:image/png;base64,'+data.image} alt="" />)
+              setImage(<img className="w-4 h-4" src={'data:image/png;base64,'+data.image} alt="" />)
           }else{
             setImage(null)
           }

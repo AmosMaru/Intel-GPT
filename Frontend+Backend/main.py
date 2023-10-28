@@ -131,7 +131,7 @@ def open_interpreter_2(user_query):
     return 'open_interpreter_2'
 
 def llava_interpreter(user_query):
-    if os.path.isfile("Frontend+Backend/temp_chart.png"):
+    if os.path.isfile("temp_chart.png"):
         return "llava"
     else:
         return pandai_interpreter(user_query)
@@ -191,6 +191,3 @@ def get_image(path):
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000),host="0.0.0.0")
-
-
-    

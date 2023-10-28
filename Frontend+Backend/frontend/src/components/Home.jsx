@@ -28,7 +28,7 @@ function Image({path}){
     );
 }
 export default function Home(){
-    let [images, setImages] = useState(["5.png"])
+    let [images, setImages] = useState(null)
 
     useEffect(() => {
         fetch(`${baseURL}/imageList`)
@@ -41,6 +41,7 @@ export default function Home(){
         <div class="p-4 rounded-lg border-gray-700 mt-14 lg:mt-16 lg:overflow-y-none">
             <div className="grid grid-cols-3 gap-4">
                 {
+                    images &&
                     images.map(file => {
                         return <Image path={file} />
                     })

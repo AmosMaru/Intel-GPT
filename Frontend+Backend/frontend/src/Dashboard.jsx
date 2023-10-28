@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Settings from "./components/Settings";
 import Download from "./components/Download";
 import Prompt from "./components/Prompt";
+import Visual from "./components/Visual";
 import { baseURL } from "./data.json";
 
 export default function Dashboard() {
@@ -151,6 +152,16 @@ export default function Dashboard() {
                 <span className="flex-1 ml-3 whitespace-nowrap">ChatBOT</span>
               </button>
             </li>
+            
+            <li onClick={(e) => setPage("visual")}>
+              <button
+                href="#"
+                className={`flex items-center p-2 w-full rounded-lg text-white hover:bg-gray-700 ${page === "visual" && "bg-gray-700"}`}
+              >
+                <img className="w-6 inline" src="/gptassist.svg" alt="" />
+                <span className="ml-3">Intel-Vision</span>
+              </button>
+            </li>
             <li onClick={(e) => setPage("home")}>
               <button
                 href="#"
@@ -196,6 +207,7 @@ export default function Dashboard() {
       >
         {page === "home" && <Home />}
         {page === "download" && <Download />}
+        {page === "visual" && <Visual />}
         {page === "bot" && <Prompt />}
       </div>
     </div>
