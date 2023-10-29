@@ -119,16 +119,16 @@ def pandai_interpreter(user_query):
     llm = OpenAI(api_token=openai_api_key)
     pandas_ai = PandasAI(llm)
     result = pandas_ai.run(data_df, prompt=user_query)
-    return 'result'
+    return result
 
 def open_interpreter_2(user_query):
     # Process user message and get response
-    # buffer = io.StringIO()
-    # sys.stdout = buffer
-    # interpreter.chat(f'{user_query} use this dataset {data_df}')
-    # sys.stdout = sys.__stdout__
-    # results = buffer.getvalue()
-    return 'open_interpreter_2'
+    buffer = io.StringIO()
+    sys.stdout = buffer
+    interpreter.chat(f'{user_query} use this dataset {data_df}')
+    sys.stdout = sys.__stdout__
+    results = buffer.getvalue()
+    return results
 
 # def llava_interpreter(user_query):
 #     if os.path.isfile("temp_chart.png"):
@@ -137,15 +137,15 @@ def open_interpreter_2(user_query):
 #         return pandai_interpreter(user_query)
 
 def determine_interpreter(user_query):
-    # if "1" in user_query.lower(): # Pandasai to generete graph 
-    #     return pandai_interpreter
-    # elif "2" in user_query.lower():# open_interperter to interacte with dataset
-    #     return open_interpreter_2
+    if "1" in user_query.lower(): # Pandasai to generete graph 
+        return pandai_interpreter
+    elif "2" in user_query.lower():# open_interperter to interacte with dataset
+        return open_interpreter_2
     # elif '3' in user_query.lower():# llava to interprate images
     #     return llava_interpreter
     # else:
         # return open_interpreter_2
-    return pandai_interpreter
+    # return pandai_interpreter
 
 @app.route("/query", methods=["POST"])
 def query():
@@ -156,7 +156,8 @@ def query():
     if data_df is not None:
         interpreter = determine_interpreter(user_query)
         response = interpreter(user_query)
-        
+
+        # Showing images on the frontend
         # if os.path.isfile("temp_chart.png"):  # Check if the image file exists
         #     print("!!\tOne image coming up\t!!")
         #     return {
@@ -165,7 +166,12 @@ def query():
         #         "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')
         #     }
             
-        return {"status": "success", "response": response}
+            
+        return {
+                "status": "success",
+                "response": response,
+              }
+        # return {"status": "success", "response": response}
     else:
         return {"status": "error", "response": "Upload your Dataset.csv first"}
     
