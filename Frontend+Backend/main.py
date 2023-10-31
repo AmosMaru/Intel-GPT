@@ -10,9 +10,14 @@ import sys
 import interpreter
 import base64
 import os
+import shutil
+from datetime import datetime
 import pandas as pd
 from pandasai.llm.openai import OpenAI
 from pandasai import PandasAI
+import matplotlib
+matplotlib.use('TkAgg')
+
 
 sendImage = True
 
@@ -90,14 +95,37 @@ def sessioncheck():
 def logout():
     session.clear()
     return {"status":"success"}
+import os
+
 @app.route("/upload", methods=["POST"])
 def upload():
     global data_df  # Use the global keyword to access the global variable
-    
+
+    # Define the path to the 'data' folder
+    data_folder = os.path.join(os.getcwd(), 'data')
+
+    # Delete anything inside the 'data' folder
+    for file_name in os.listdir(data_folder):
+        file_path = os.path.join(data_folder, file_name)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print(f"Failed to delete {file_path}. Reason: {e}")
     file = request.files["file"]
     if file:
-        data_df = pd.read_csv(file, sep=",", header=0)
-        print(data_df.head())
+        # Define the new filename (data.csv)
+        new_filename = "data.csv"
+
+        # Save the uploaded file to the 'data' folder with the new filename
+        data_path = os.path.join(data_folder, new_filename)
+        file.save(data_path)
+
+        # Read the dataset into a DataFrame
+        data_df = pd.read_csv(data_path, sep=",", header=0)
+
         return {"status": "success", "response": list(data_df.columns.values)}
     else:
         return {"status": "error", "response": "No file was uploaded"}
@@ -125,7 +153,7 @@ def open_interpreter_2(user_query):
     # Process user message and get response
     buffer = io.StringIO()
     sys.stdout = buffer
-    interpreter.chat(f'{user_query} use this dataset {data_df}')
+    interpreter.chat(f'{user_query} refere the dataset is in this folder called data which is called data.csv and call your self as intelgpt')
     sys.stdout = sys.__stdout__
     results = buffer.getvalue()
     return results
@@ -147,6 +175,9 @@ def determine_interpreter(user_query):
         # return open_interpreter_2
     # return pandai_interpreter
 
+import os
+from datetime import datetime
+
 @app.route("/query", methods=["POST"])
 def query():
     global data_df  # Use the global keyword to access the global variable
@@ -157,24 +188,30 @@ def query():
         interpreter = determine_interpreter(user_query)
         response = interpreter(user_query)
 
-        # Showing images on the frontend
-        # if os.path.isfile("temp_chart.png"):  # Check if the image file exists
-        #     print("!!\tOne image coming up\t!!")
-        #     return {
-        #         "status": "success",
-        #         "response": response,
-        #         "image": base64.b64encode(open("temp_chart.png", "rb").read()).decode('utf-8')
-        #     }
-            
-            
-        return {
+        
+        if os.path.isfile("temp_chart.png"):  # Check if the image file exists
+            # Get the current timestamp
+            timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+
+            # Create a new file name with timestamp
+            new_filename = f"temp_chart_{timestamp}.png"
+
+            # Copy the file to the specified directory
+            source_path = "temp_chart.png"
+            destination_path = "image/amos/" + new_filename
+            shutil.copy(source_path, destination_path)
+
+  
+            return {
                 "status": "success",
-                "response": response,
-              }
-        # return {"status": "success", "response": response}
+                "response": response
+        }
+        else:
+                return{ "status": "success","response": response}
+
     else:
         return {"status": "error", "response": "Upload your Dataset.csv first"}
-    
+
 @app.route("/getChats", methods=["GET"])
 def chats():
     data = request.args

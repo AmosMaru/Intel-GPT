@@ -11,7 +11,7 @@ export default function Download(){
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'daily-report.csv';
+            a.download = 'daily-report.pdf';
             document.body.appendChild(a);
             a.click();
             a.remove();
@@ -23,11 +23,13 @@ export default function Download(){
                 <div class="row-span-3 lg:col-span-2 overflow-x-scroll overflow-y-scroll order-last md:order-first max-h-screen">
                     <Table/>
                 </div>
-                <button onClick={e=>download(e)} className="font-semibold text-xl bg-gray-800 hover:bg-gray-900 hover:scale-y-105 px-4 py-2 float-right rounded-2xl w-96 mx-auto h-80">
+                <button  className="font-semibold text-xl bg-gray-800 hover:bg-gray-900 hover:scale-y-105 px-4 py-2 float-right rounded-2xl w-96 mx-auto h-80">
                     <img className="inline w-16 my-8" src="/download.svg" alt="" />
-                    <div className="mb-4 text-2xl">Download report</div>
+                    <div className="mb-4 text-2xl">
+                        <a download="../../image/amos/image/amos/temp_chart_20231030185532.pn">Download</a>
+                    </div>
                 </button>
-                <Filter/>
+                {/* <Filter/> */}
             </div>
         </div>
     )

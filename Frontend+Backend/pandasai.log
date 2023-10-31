@@ -69,3 +69,2526 @@ def analyze_data(dfs: list[pd.DataFrame]) ->dict:
 2023-10-29 00:11:44 [INFO] 127.0.0.1 - - [29/Oct/2023 00:11:44] "GET /getChats?id=12345 HTTP/1.1" 200 -
 2023-10-29 00:14:20 [INFO] 127.0.0.1 - - [29/Oct/2023 00:14:20] "GET /getChats?id=12345 HTTP/1.1" 200 -
 2023-10-29 09:42:45 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\intel-vision-server.py', reloading
+2023-10-29 20:49:01 [INFO] Question: 1. plot types of customers
+2023-10-29 20:49:01 [INFO] Running PandasAI with openai LLM...
+2023-10-29 20:49:01 [INFO] Prompt ID: 54cf1cba-af54-4c8c-8c1c-f24ad01de5e3
+2023-10-29 21:20:07 [INFO] Question: 1. which is the happiest country
+2023-10-29 21:20:07 [INFO] Running PandasAI with openai LLM...
+2023-10-29 21:20:07 [INFO] Prompt ID: 46d231be-b23d-490b-8b7c-a4bff66c462f
+2023-10-29 21:20:31 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Get the happiest country
+    happiest_country = "Finland"
+    
+    # Return the result
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-29 21:20:31 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    happiest_country = 'Finland'
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-29 21:20:31 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Finland.'}
+2023-10-29 21:20:31 [INFO] Executed in: 23.884392261505127s
+2023-10-29 21:20:31 [INFO] 127.0.0.1 - - [29/Oct/2023 21:20:31] "[35m[1mPOST /query HTTP/1.1[0m" 500 -
+2023-10-29 21:20:40 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 21:20:40 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 21:20:40 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 21:21:18 [INFO] Question: 1. which is the happiest country
+2023-10-29 21:21:18 [INFO] Running PandasAI with openai LLM...
+2023-10-29 21:21:18 [INFO] Prompt ID: 0a471ccf-2d7e-44a8-99ad-178d4cb134a8
+2023-10-29 21:21:18 [INFO] Using cached response
+2023-10-29 21:21:18 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-29 21:21:18 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-29 21:21:18 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-10-29 21:21:18 [INFO] Executed in: 0.0s
+2023-10-29 21:21:18 [INFO] 127.0.0.1 - - [29/Oct/2023 21:21:18] "[35m[1mPOST /query HTTP/1.1[0m" 500 -
+2023-10-29 21:21:48 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 21:21:48 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 21:21:48 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 21:21:48 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-29 22:49:04 [INFO] Question: 1. plot the forms of payment available
+2023-10-29 22:49:04 [INFO] Running PandasAI with openai LLM...
+2023-10-29 22:49:04 [INFO] Prompt ID: 3c871d2e-c613-43ee-90d6-ddee5eb7f9d8
+2023-10-29 22:51:45 [INFO] Question: 1. plot the forms of payment available
+2023-10-29 22:51:45 [INFO] Running PandasAI with openai LLM...
+2023-10-29 22:51:45 [INFO] Prompt ID: 5e6ab6d7-b82e-48cb-82d8-16a1f75bc618
+2023-10-29 22:52:08 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    payment_counts = df['Payment'].value_counts()
+    
+    # Analyze
+    payment_counts.plot(kind='bar')
+    plt.xlabel('Payment Method')
+    plt.ylabel('Count')
+    plt.title('Forms of Payment Available')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-29 22:52:08 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    payment_counts = df['Payment'].value_counts()
+    payment_counts.plot(kind='bar')
+    plt.xlabel('Payment Method')
+    plt.ylabel('Count')
+    plt.title('Forms of Payment Available')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-29 22:52:08 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pyparsing\\core.py', reloading
+2023-10-29 22:55:17 [INFO] Question: 1plot the forms of payment available
+2023-10-29 22:55:17 [INFO] Running PandasAI with openai LLM...
+2023-10-29 22:55:17 [INFO] Prompt ID: f61cb1ca-ccee-4d7e-b460-a3294bfb6884
+2023-10-29 22:55:41 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]  # Assuming we only have one dataframe
+    
+    # Process
+    payment_counts = df['Payment'].value_counts()
+    
+    # Analyze
+    if 'plot' in conversation[-1]:
+        # Save the plot to a file
+        plt.bar(payment_counts.index, payment_counts.values)
+        plt.xlabel('Payment Method')
+        plt.ylabel('Count')
+        plt.title('Forms of Payment Available')
+        plt.savefig('/temp_chart.png')
+        
+        return {"type": "plot", "value": "/temp_chart.png"}
+    else:
+        return {"type": "dataframe", "value": payment_counts.to_frame()}
+```
+
+2023-10-29 22:55:41 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    payment_counts = df['Payment'].value_counts()
+    if 'plot' in conversation[-1]:
+        plt.bar(payment_counts.index, payment_counts.values)
+        plt.xlabel('Payment Method')
+        plt.ylabel('Count')
+        plt.title('Forms of Payment Available')
+        plt.savefig('/temp_chart.png')
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+    else:
+        return {'type': 'dataframe', 'value': payment_counts.to_frame()}
+        ```
+2023-10-29 22:55:42 [WARNING] Error of executing code
+2023-10-29 22:55:42 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-29 22:55:42 [ERROR] Failed with error: name 'conversation' is not defined. Retrying
+2023-10-29 22:55:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandasai\\helpers\\code_manager.py', reloading
+2023-10-29 22:59:15 [INFO] Question: 1. plot the top 5 happiest contries
+2023-10-29 22:59:15 [INFO] Running PandasAI with openai LLM...
+2023-10-29 22:59:15 [INFO] Prompt ID: aa334873-d3cc-4fa4-b921-08df65d3edce
+2023-10-29 22:59:41 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-29 22:59:41 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-29 22:59:42 [WARNING] Error of executing code
+2023-10-29 22:59:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\pyplot.py', reloading
+2023-10-29 22:59:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\figure.py', reloading
+2023-10-29 22:59:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backend_bases.py', reloading
+2023-10-29 22:59:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backends\\backend_agg.py', reloading
+2023-10-29 22:59:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\image.py', reloading
+2023-10-29 22:59:42 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\PIL\\Image.py', reloading
+2023-10-29 22:59:42 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-29 22:59:42 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-29 23:13:53 [INFO] Question: 1. plot the top 5 happiest contries
+2023-10-29 23:13:53 [INFO] Running PandasAI with openai LLM...
+2023-10-29 23:13:53 [INFO] Prompt ID: feed9538-ee7d-45e1-8d48-bf57d1ee0967
+2023-10-29 23:13:53 [INFO] Using cached response
+2023-10-29 23:13:53 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-29 23:13:53 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-29 23:13:55 [WARNING] Error of executing code
+2023-10-29 23:13:55 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-29 23:13:55 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 09:52:45 [INFO] 127.0.0.1 - - [30/Oct/2023 09:52:45] "POST /query HTTP/1.1" 200 -
+2023-10-30 09:56:16 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:16] "[36mGET / HTTP/1.1[0m" 304 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "[36mGET /assets/index-de4a9264.js HTTP/1.1[0m" 304 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "[36mGET /assets/index-2a2b7431.css HTTP/1.1[0m" 304 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "[36mGET /logo.svg HTTP/1.1[0m" 304 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "GET /session HTTP/1.1" 200 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "[36mGET /message.svg HTTP/1.1[0m" 304 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "[36mGET /gptassist.svg HTTP/1.1[0m" 304 -
+2023-10-30 09:56:17 [INFO] 127.0.0.1 - - [30/Oct/2023 09:56:17] "[36mGET /logo.svg HTTP/1.1[0m" 304 -
+2023-10-30 10:06:57 [INFO] Question: 1.plot the total sales by brunch
+2023-10-30 10:06:57 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:06:57 [INFO] Prompt ID: cb130a3a-a944-4db3-b8de-f6a8355a4dea
+2023-10-30 10:07:26 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Grouping the data by Branch and calculating the total sales
+    total_sales_by_branch = dfs[0].groupby('Branch')['Total'].sum()
+
+    # Analyze: Plotting the total sales by branch
+    plt.bar(total_sales_by_branch.index, total_sales_by_branch.values)
+    plt.xlabel('Branch')
+    plt.ylabel('Total Sales')
+    plt.title('Total Sales by Branch')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+
+    # Output: Returning the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 10:07:26 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    total_sales_by_branch = dfs[0].groupby('Branch')['Total'].sum()
+    plt.bar(total_sales_by_branch.index, total_sales_by_branch.values)
+    plt.xlabel('Branch')
+    plt.ylabel('Total Sales')
+    plt.title('Total Sales by Branch')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 10:07:27 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pyparsing\\core.py', reloading
+2023-10-30 10:10:00 [INFO] Question: 1.plot the total sales by brunch
+2023-10-30 10:10:00 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:10:00 [INFO] Prompt ID: 016d440d-6fbc-4256-bfbf-baf132d6973d
+2023-10-30 10:10:00 [INFO] Using cached response
+2023-10-30 10:10:00 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Grouping the data by Branch and calculating the total sales
+    total_sales_by_branch = dfs[0].groupby('Branch')['Total'].sum()
+
+    # Analyze: Plotting the total sales by branch
+    plt.bar(total_sales_by_branch.index, total_sales_by_branch.values)
+    plt.xlabel('Branch')
+    plt.ylabel('Total Sales')
+    plt.title('Total Sales by Branch')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+
+    # Output: Returning the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 10:10:00 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    total_sales_by_branch = dfs[0].groupby('Branch')['Total'].sum()
+    plt.bar(total_sales_by_branch.index, total_sales_by_branch.values)
+    plt.xlabel('Branch')
+    plt.ylabel('Total Sales')
+    plt.title('Total Sales by Branch')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 10:10:01 [WARNING] Error of executing code
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandasai\\helpers\\code_manager.py', reloading
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\pyplot.py', reloading
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\figure.py', reloading
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backend_bases.py', reloading
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backends\\backend_agg.py', reloading
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\image.py', reloading
+2023-10-30 10:10:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\PIL\\Image.py', reloading
+2023-10-30 10:10:01 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 10:10:01 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 10:11:04 [INFO] Question: 1.plot the total sales by brunch
+2023-10-30 10:11:04 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:11:04 [INFO] Prompt ID: 1579c15a-206c-4736-b7be-92d3a5133a96
+2023-10-30 10:13:24 [INFO] 127.0.0.1 - - [30/Oct/2023 10:13:24] "POST /upload HTTP/1.1" 200 -
+2023-10-30 10:13:36 [INFO] Question: 1which is the happiest country
+2023-10-30 10:13:36 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:13:36 [INFO] Prompt ID: 965e2196-15d8-49ee-a90e-f5fe2a16ee54
+2023-10-30 10:13:58 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-30 10:13:58 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-30 10:13:58 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-10-30 10:13:58 [INFO] Executed in: 21.708745002746582s
+2023-10-30 10:13:58 [INFO] 127.0.0.1 - - [30/Oct/2023 10:13:58] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:14:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:14:31] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 10:15:03 [INFO] Question: 1. which is the happiest country
+2023-10-30 10:15:03 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:15:03 [INFO] Prompt ID: f254cd0d-9998-4330-a401-879f894f084e
+2023-10-30 10:15:34 [INFO] 127.0.0.1 - - [30/Oct/2023 10:15:34] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:15:48 [INFO] 127.0.0.1 - - [30/Oct/2023 10:15:48] "POST /upload HTTP/1.1" 200 -
+2023-10-30 10:15:55 [INFO] Question: 1. which is the happiest country
+2023-10-30 10:15:55 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:15:55 [INFO] Prompt ID: b4e4b3bd-bacd-42c3-aa98-4e6db9cec099
+2023-10-30 10:16:32 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-30 10:16:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-30 10:16:32 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-10-30 10:16:32 [INFO] Executed in: 37.0978479385376s
+2023-10-30 10:16:32 [INFO] 127.0.0.1 - - [30/Oct/2023 10:16:32] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:18:25 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 10:18:25 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 10:22:27 [INFO] Question: 1. which is the happiest country
+2023-10-30 10:22:27 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:22:27 [INFO] Prompt ID: 842ae85d-9f8f-43eb-ab3d-afa41381aa62
+2023-10-30 10:22:27 [INFO] Using cached response
+2023-10-30 10:22:27 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-30 10:22:27 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-30 10:22:27 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-10-30 10:22:27 [INFO] Executed in: 0.032363176345825195s
+2023-10-30 10:22:27 [INFO] 127.0.0.1 - - [30/Oct/2023 10:22:27] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:23:04 [INFO] Question: 1. plot a graph of the top 5 happiest countries
+2023-10-30 10:23:04 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:23:04 [INFO] Prompt ID: 91e30c4e-5266-4bd4-8d0a-81c417aae7b8
+2023-10-30 10:23:34 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot a graph of the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 10:23:34 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 10:23:36 [WARNING] Error of executing code
+2023-10-30 10:23:36 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 10:23:36 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 10:24:13 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-30 10:24:13 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-10-30 10:24:39 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-30 10:24:39 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-30 10:24:39 [INFO] Executed in: 95.35129857063293s
+2023-10-30 10:24:39 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandasai\\smart_datalake\\__init__.py', reloading
+2023-10-30 10:28:10 [INFO] Question: which is the happiest county 1
+2023-10-30 10:28:10 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:28:10 [INFO] Prompt ID: 4898fce2-3e2a-40f2-ac0a-3f8da912ad89
+2023-10-30 10:28:30 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-30 10:28:30 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-30 10:28:30 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-10-30 10:28:30 [INFO] Executed in: 20.059277296066284s
+2023-10-30 10:28:30 [INFO] 127.0.0.1 - - [30/Oct/2023 10:28:30] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:28:48 [INFO] 127.0.0.1 - - [30/Oct/2023 10:28:48] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 10:28:48 [INFO] 127.0.0.1 - - [30/Oct/2023 10:28:48] "[36mGET /image/temp_chart_20231029224248.png HTTP/1.1[0m" 304 -
+2023-10-30 10:28:48 [INFO] 127.0.0.1 - - [30/Oct/2023 10:28:48] "[36mGET /image/temp_chart_20231030095245.png HTTP/1.1[0m" 304 -
+2023-10-30 10:28:48 [INFO] 127.0.0.1 - - [30/Oct/2023 10:28:48] "GET /image/temp_chart_20231030102830.png HTTP/1.1" 200 -
+2023-10-30 10:32:56 [INFO] 127.0.0.1 - - [30/Oct/2023 10:32:56] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 10:33:08 [INFO] 127.0.0.1 - - [30/Oct/2023 10:33:08] "POST /upload HTTP/1.1" 200 -
+2023-10-30 10:34:43 [INFO] 127.0.0.1 - - [30/Oct/2023 10:34:43] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:36:38 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 10:36:38 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 10:57:17 [INFO] Question: 1 which is the happiest country
+2023-10-30 10:57:17 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:57:17 [INFO] Prompt ID: 8c72711a-0ce5-4dc5-97fa-1928dd20d2c5
+2023-10-30 10:57:37 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Find the happiest country
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    
+    # Output: Return the happiest country
+    return {"type": "text", "value": f"The happiest country is {happiest_country}."}
+```
+
+2023-10-30 10:57:37 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    happiest_country = df.loc[df['happiness_index'].idxmax(), 'country']
+    return {'type': 'text', 'value': f'The happiest country is {happiest_country}.'}
+        ```
+2023-10-30 10:57:37 [INFO] Answer: {'type': 'text', 'value': 'The happiest country is Delhi.'}
+2023-10-30 10:57:37 [INFO] Executed in: 19.603688955307007s
+2023-10-30 10:57:37 [INFO] 127.0.0.1 - - [30/Oct/2023 10:57:37] "POST /query HTTP/1.1" 200 -
+2023-10-30 10:58:13 [INFO] Question: 1 plot a graph of the top 5 happiest countries
+2023-10-30 10:58:13 [INFO] Running PandasAI with openai LLM...
+2023-10-30 10:58:13 [INFO] Prompt ID: 2b885973-a66d-47df-a52e-486df454b5d4
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231029224248.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030103443.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030103740.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030102830.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030104911.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030105631.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030105536.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030105136.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030105302.png HTTP/1.1" 200 -
+2023-10-30 10:58:31 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:31] "GET /image/temp_chart_20231030105737.png HTTP/1.1" 200 -
+2023-10-30 10:58:39 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:39] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 10:58:40 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot a graph of the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 10:58:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 10:58:40 [WARNING] Error of executing code
+2023-10-30 10:58:40 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 10:58:40 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 10:58:48 [INFO] 127.0.0.1 - - [30/Oct/2023 10:58:48] "POST /upload HTTP/1.1" 200 -
+2023-10-30 10:59:06 [INFO] 127.0.0.1 - - [30/Oct/2023 10:59:06] "POST /upload HTTP/1.1" 200 -
+2023-10-30 10:59:07 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-30 10:59:07 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-10-30 11:00:21 [INFO] 127.0.0.1 - - [30/Oct/2023 11:00:21] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:02:08 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\os.py', reloading
+2023-10-30 11:07:37 [INFO] Question: 1. plot the types of customers i have
+2023-10-30 11:07:37 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:07:37 [INFO] Prompt ID: e958fb2a-304a-4a34-95b8-af724fa1c491
+2023-10-30 11:07:58 [INFO] Question: 1. plot the types of customers i have
+2023-10-30 11:07:58 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:07:58 [INFO] Prompt ID: 893caecb-fae7-4c69-b4f1-36070ab8e490
+2023-10-30 11:08:27 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    
+    # Analyze
+    if 'plot' in conversation[-1]:
+        # Plot the types of customers
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        
+        return {"type": "plot", "value": "/temp_chart.png"}
+    else:
+        # Return the types of customers as a dataframe
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {"type": "dataframe", "value": customer_df}
+```
+
+2023-10-30 11:08:27 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    if 'plot' in conversation[-1]:
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+    else:
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {'type': 'dataframe', 'value': customer_df}
+        ```
+2023-10-30 11:08:27 [WARNING] Error of executing code
+2023-10-30 11:08:27 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 11:08:27 [ERROR] Failed with error: name 'conversation' is not defined. Retrying
+2023-10-30 11:08:54 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    if 'plot' in conversation[-1]:
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+    else:
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {'type': 'dataframe', 'value': customer_df}
+        ```
+2023-10-30 11:08:54 [WARNING] Error of executing code
+2023-10-30 11:08:54 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-30 11:08:54 [ERROR] Failed with error: name 'conversation' is not defined. Retrying
+2023-10-30 11:09:20 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    if 'plot' in conversation[-1]:
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+    else:
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {'type': 'dataframe', 'value': customer_df}
+        ```
+2023-10-30 11:09:20 [WARNING] Error of executing code
+2023-10-30 11:09:20 [INFO] 127.0.0.1 - - [30/Oct/2023 11:09:20] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:10:38 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 11:10:38 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 11:10:52 [INFO] Question: 1. plot the types of customers i have
+2023-10-30 11:10:52 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:10:52 [INFO] Prompt ID: 063aaffc-cfab-4ca9-a3bf-1559de68d24c
+2023-10-30 11:10:52 [INFO] Using cached response
+2023-10-30 11:10:52 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    
+    # Analyze
+    if 'plot' in conversation[-1]:
+        # Plot the types of customers
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        
+        return {"type": "plot", "value": "/temp_chart.png"}
+    else:
+        # Return the types of customers as a dataframe
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {"type": "dataframe", "value": customer_df}
+```
+
+2023-10-30 11:10:52 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    if 'plot' in conversation[-1]:
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+    else:
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {'type': 'dataframe', 'value': customer_df}
+        ```
+2023-10-30 11:10:53 [WARNING] Error of executing code
+2023-10-30 11:10:53 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 11:10:53 [ERROR] Failed with error: name 'conversation' is not defined. Retrying
+2023-10-30 11:10:53 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandasai\\helpers\\code_manager.py', reloading
+2023-10-30 11:11:22 [INFO] Question: 1. plot the types of customers i have
+2023-10-30 11:11:22 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:11:22 [INFO] Prompt ID: 649e15a3-3c63-41a3-a0a9-6d6360d5dc00
+2023-10-30 11:11:22 [INFO] Using cached response
+2023-10-30 11:11:22 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    
+    # Analyze
+    if 'plot' in conversation[-1]:
+        # Plot the types of customers
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        
+        return {"type": "plot", "value": "/temp_chart.png"}
+    else:
+        # Return the types of customers as a dataframe
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {"type": "dataframe", "value": customer_df}
+```
+
+2023-10-30 11:11:22 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    customer_counts = df['Customer type'].value_counts()
+    if 'plot' in conversation[-1]:
+        plt.bar(customer_types, customer_counts)
+        plt.xlabel('Customer Type')
+        plt.ylabel('Count')
+        plt.title('Types of Customers')
+        plt.savefig('/temp_chart.png')
+        plt.close()
+        return {'type': 'plot', 'value': '/temp_chart.png'}
+    else:
+        customer_df = pd.DataFrame({'Customer Type': customer_types, 'Count': customer_counts})
+        return {'type': 'dataframe', 'value': customer_df}
+        ```
+2023-10-30 11:11:23 [WARNING] Error of executing code
+2023-10-30 11:11:23 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 11:11:23 [ERROR] Failed with error: name 'conversation' is not defined. Retrying
+2023-10-30 11:12:54 [INFO] Question: 1. plot the types of payments
+2023-10-30 11:12:54 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:12:54 [INFO] Prompt ID: 0a4b18e6-2572-4c43-bafa-025e3274a1aa
+2023-10-30 11:13:18 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    payment_counts = df['Payment'].value_counts()
+    
+    # Analyze
+    plt.figure(figsize=(8, 6))
+    payment_counts.plot(kind='bar')
+    plt.xlabel('Payment Type')
+    plt.ylabel('Count')
+    plt.title('Types of Payments')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 11:13:18 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    payment_counts = df['Payment'].value_counts()
+    plt.figure(figsize=(8, 6))
+    payment_counts.plot(kind='bar')
+    plt.xlabel('Payment Type')
+    plt.ylabel('Count')
+    plt.title('Types of Payments')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 11:13:18 [WARNING] Error of executing code
+2023-10-30 11:13:18 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\pyplot.py', reloading
+2023-10-30 11:13:18 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\figure.py', reloading
+2023-10-30 11:13:18 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backend_bases.py', reloading
+2023-10-30 11:13:18 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backends\\backend_agg.py', reloading
+2023-10-30 11:13:18 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\image.py', reloading
+2023-10-30 11:13:18 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\PIL\\Image.py', reloading
+2023-10-30 11:13:18 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 11:13:18 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 11:33:42 [INFO] Question: 1. what can you do
+2023-10-30 11:33:42 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:33:42 [INFO] Prompt ID: 91cd0e88-07ea-498a-b400-5c07b4626b7b
+2023-10-30 11:33:48 [INFO] 127.0.0.1 - - [30/Oct/2023 11:33:48] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 11:33:48 [INFO] Question: 1. what can you do
+2023-10-30 11:33:48 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:33:48 [INFO] Prompt ID: e83280a5-aedb-4c70-b36d-399ee27dcee8
+2023-10-30 11:34:19 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare: No preprocessing or cleaning required
+    
+    # Process: Calculate the total tax collected for each country
+    total_tax_collected = dfs[0].groupby('country')['annual tax collected'].sum()
+    
+    # Analyze: Find the country with the highest tax collection
+    max_tax_country = total_tax_collected.idxmax()
+    
+    # Output: Return the country with the highest tax collection
+    return {"type": "text", "value": f"The country with the highest tax collection is {max_tax_country}."}
+```
+
+2023-10-30 11:34:19 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    total_tax_collected = dfs[0].groupby('country')['annual tax collected'].sum()
+    max_tax_country = total_tax_collected.idxmax()
+    return {'type': 'text', 'value': f'The country with the highest tax collection is {max_tax_country}.'}
+        ```
+2023-10-30 11:34:19 [WARNING] Error of executing code
+2023-10-30 11:34:19 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandas\\core\\series.py', reloading
+2023-10-30 11:34:19 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandas\\core\\base.py', reloading
+2023-10-30 11:34:19 [INFO] Answer: {'type': 'text', 'value': 'The country with the highest tax collection is Agra.'}
+2023-10-30 11:34:19 [INFO] Executed in: 31.07608199119568s
+2023-10-30 11:34:19 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandas\\core\\nanops.py', reloading
+2023-10-30 11:34:19 [INFO] 127.0.0.1 - - [30/Oct/2023 11:34:19] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:37:41 [INFO] Question: 1 what can you do ?
+2023-10-30 11:37:41 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:37:41 [INFO] Prompt ID: 6b4c047a-8b33-47c1-9c92-11ae2cb2db18
+2023-10-30 11:38:25 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Check if the user asked "what can you do?"
+    if dfs[0].shape[0] == 10 and dfs[0].shape[1] == 3:
+        return {
+            "type": "text",
+            "value": "I can analyze the data provided."
+        }
+```
+
+2023-10-30 11:38:25 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    if dfs[0].shape[0] == 10 and dfs[0].shape[1] == 3:
+        return {'type': 'text', 'value': 'I can analyze the data provided.'}
+        ```
+2023-10-30 11:38:25 [INFO] Answer: {'type': 'text', 'value': 'I can analyze the data provided.'}
+2023-10-30 11:38:25 [INFO] Executed in: 43.08690547943115s
+2023-10-30 11:38:25 [INFO] 127.0.0.1 - - [30/Oct/2023 11:38:25] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:38:45 [INFO] 127.0.0.1 - - [30/Oct/2023 11:38:45] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 11:38:45 [INFO] Question: 1 what is the data about
+2023-10-30 11:38:45 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:38:45 [INFO] Prompt ID: 6e326242-974f-4e15-9836-09d727269886
+2023-10-30 11:39:04 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Check if the user wants to know what the data is about
+    if "what is the data about" in dfs[0].columns:
+        return {"type": "text", "value": "The data is about tax collected and happiness index in different cities."}
+```
+
+2023-10-30 11:39:04 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    if 'what is the data about' in dfs[0].columns:
+        return {'type': 'text', 'value': 'The data is about tax collected and happiness index in different cities.'}
+        ```
+2023-10-30 11:39:04 [INFO] Executed in: 19.36812949180603s
+2023-10-30 11:39:04 [INFO] 127.0.0.1 - - [30/Oct/2023 11:39:04] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:39:20 [INFO] 127.0.0.1 - - [30/Oct/2023 11:39:20] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 11:39:20 [INFO] Question: 1 what is the data about?
+2023-10-30 11:39:20 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:39:20 [INFO] Prompt ID: c1dc2f5d-4876-4745-9332-4354b63f2840
+2023-10-30 11:39:40 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Check if the user wants to know what the data is about
+    if "what is the data about" in dfs[0].columns:
+        return {"type": "text", "value": "The data is about tax collected and happiness index in different cities."}
+```
+
+2023-10-30 11:39:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    if 'what is the data about' in dfs[0].columns:
+        return {'type': 'text', 'value': 'The data is about tax collected and happiness index in different cities.'}
+        ```
+2023-10-30 11:39:40 [INFO] Executed in: 20.15000891685486s
+2023-10-30 11:39:40 [INFO] 127.0.0.1 - - [30/Oct/2023 11:39:40] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:40:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 11:40:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 11:40:01 [INFO]  * Detected change in 'C:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 11:52:34 [INFO] Question: 1 plot the top 5 happiest countries 
+2023-10-30 11:52:34 [INFO] Running PandasAI with openai LLM...
+2023-10-30 11:52:34 [INFO] Prompt ID: 1cb973aa-225b-4fef-ba37-697e835c07a6
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "GET /image/temp_chart_20231030114319.png HTTP/1.1" 200 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "[36mGET /image/temp_chart_20231030114319.png HTTP/1.1[0m" 304 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "GET /image/temp_chart_20231030115148.png HTTP/1.1" 200 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "GET /image/temp_chart_20231030115052.png HTTP/1.1" 200 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "[36mGET /image/temp_chart_20231030115148.png HTTP/1.1[0m" 304 -
+2023-10-30 11:52:43 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:43] "[36mGET /image/temp_chart_20231030115052.png HTTP/1.1[0m" 304 -
+2023-10-30 11:52:53 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:53] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 11:52:53 [INFO] 127.0.0.1 - - [30/Oct/2023 11:52:53] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 11:53:07 [INFO] 127.0.0.1 - - [30/Oct/2023 11:53:07] "POST /upload HTTP/1.1" 200 -
+2023-10-30 11:53:12 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Process: Sort the dataframe by happiness_index in descending order
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    
+    # Process: Select the top 5 happiest countries
+    top_5_happiest = sorted_df.head(5)
+    
+    # Analyze: Plot the top 5 happiest countries
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output: Return the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 11:53:12 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 11:53:12 [WARNING] Error of executing code
+2023-10-30 11:53:12 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 11:53:12 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 11:53:33 [INFO] 127.0.0.1 - - [30/Oct/2023 11:53:33] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 11:53:43 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-30 11:53:43 [ERROR] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-10-30 11:53:55 [INFO] 127.0.0.1 - - [30/Oct/2023 11:53:55] "POST /query HTTP/1.1" 200 -
+2023-10-30 11:54:10 [INFO] 127.0.0.1 - - [30/Oct/2023 11:54:10] "GET /session HTTP/1.1" 200 -
+2023-10-30 11:54:10 [INFO] 127.0.0.1 - - [30/Oct/2023 11:54:10] "GET /session HTTP/1.1" 200 -
+2023-10-30 11:54:10 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    sorted_df = dfs[0].sort_values(by='happiness_index', ascending=False)
+    top_5_happiest = sorted_df.head(5)
+    plt.bar(top_5_happiest['country'], top_5_happiest['happiness_index'])
+    plt.xlabel('Country')
+    plt.ylabel('Happiness Index')
+    plt.title('Top 5 Happiest Countries')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-30 11:54:10 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-30 11:54:10 [INFO] Executed in: 96.10046148300171s
+2023-10-30 11:54:10 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandasai\\smart_datalake\\__init__.py', reloading
+2023-10-30 12:01:30 [INFO] Question: 1 which day is was the highest  gross income?
+2023-10-30 12:01:30 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:01:30 [INFO] Prompt ID: 042aeb8d-7a81-405c-aeba-9c018196199a
+2023-10-30 12:01:57 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Process: Find the day with the highest gross income
+    df = dfs[0]  # Get the first dataframe from the list
+    
+    # Convert the 'Date' column to datetime format
+    df['Date'] = pd.to_datetime(df['Date'])
+    
+    # Group the data by date and calculate the sum of 'gross income' for each date
+    daily_gross_income = df.groupby('Date')['gross income'].sum()
+    
+    # Find the date with the highest gross income
+    max_gross_income_date = daily_gross_income.idxmax()
+    
+    # Format the date as string
+    max_gross_income_date_str = max_gross_income_date.strftime('%m/%d/%Y')
+    
+    # Output: Return the result as text
+    return {"type": "text", "value": f"The day with the highest gross income was {max_gross_income_date_str}."}
+```
+
+2023-10-30 12:01:57 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    df['Date'] = pd.to_datetime(df['Date'])
+    daily_gross_income = df.groupby('Date')['gross income'].sum()
+    max_gross_income_date = daily_gross_income.idxmax()
+    max_gross_income_date_str = max_gross_income_date.strftime('%m/%d/%Y')
+    return {'type': 'text', 'value': f'The day with the highest gross income was {max_gross_income_date_str}.'}
+        ```
+2023-10-30 12:01:57 [WARNING] Error of executing code
+2023-10-30 12:01:57 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 12:01:57 [ERROR] Failed with error: '__import__'. Retrying
+2023-10-30 12:02:25 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    df['Date'] = pd.to_datetime(df['Date'])
+    daily_gross_income = df.groupby('Date')['gross income'].sum()
+    max_gross_income_date = daily_gross_income.idxmax()
+    max_gross_income_date_str = max_gross_income_date.strftime('%m/%d/%Y')
+    return {'type': 'text', 'value': f'The day with the highest gross income was {max_gross_income_date_str}.'}
+        ```
+2023-10-30 12:02:25 [WARNING] Error of executing code
+2023-10-30 12:02:25 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-30 12:02:25 [ERROR] Failed with error: '__import__'. Retrying
+2023-10-30 12:03:26 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    df['Date'] = pd.to_datetime(df['Date'])
+    daily_gross_income = df.groupby('Date')['gross income'].sum()
+    max_gross_income_date = daily_gross_income.idxmax()
+    max_gross_income_date_str = max_gross_income_date.strftime('%m/%d/%Y')
+    return {'type': 'text', 'value': f'The day with the highest gross income was {max_gross_income_date_str}.'}
+        ```
+2023-10-30 12:03:26 [WARNING] Error of executing code
+2023-10-30 12:03:26 [INFO] 127.0.0.1 - - [30/Oct/2023 12:03:26] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:03:56 [INFO] 127.0.0.1 - - [30/Oct/2023 12:03:56] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:03:56 [INFO] Question: 1 which is highest  gross income?
+2023-10-30 12:03:56 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:03:56 [INFO] Prompt ID: 9d80bd6e-5323-4a2f-bd50-efb72763f62c
+2023-10-30 12:04:17 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Process: Find the highest gross income
+    highest_gross_income = dfs[0]['gross income'].max()
+    
+    # Output: Return the highest gross income
+    return {"type": "number", "value": highest_gross_income}
+```
+
+2023-10-30 12:04:17 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    highest_gross_income = dfs[0]['gross income'].max()
+    return {'type': 'number', 'value': highest_gross_income}
+        ```
+2023-10-30 12:04:17 [INFO] Answer: {'type': 'number', 'value': 49.65}
+2023-10-30 12:04:17 [INFO] Executed in: 20.63691234588623s
+2023-10-30 12:04:17 [INFO] 127.0.0.1 - - [30/Oct/2023 12:04:17] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:05:06 [INFO] 127.0.0.1 - - [30/Oct/2023 12:05:06] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:05:06 [INFO] Question: 1 what payment types do i have
+2023-10-30 12:05:06 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:05:06 [INFO] Prompt ID: 173126ed-02d7-47b9-99dc-0fba14189ad1
+2023-10-30 12:05:29 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Prepare
+    df = dfs[0]  # Assuming we are working with the first dataframe
+    
+    # Process
+    payment_types = df['Payment'].unique()
+    
+    # Analyze
+    result = {
+        "type": "text",
+        "value": f"The available payment types are: {', '.join(payment_types)}"
+    }
+    
+    return result
+```
+
+2023-10-30 12:05:29 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    payment_types = df['Payment'].unique()
+    result = {'type': 'text', 'value': f"The available payment types are: {', '.join(payment_types)}"}
+    return result
+        ```
+2023-10-30 12:05:29 [INFO] Answer: {'type': 'text', 'value': 'The available payment types are: Ewallet, Cash, Credit card'}
+2023-10-30 12:05:29 [INFO] Executed in: 23.12795662879944s
+2023-10-30 12:05:29 [INFO] 127.0.0.1 - - [30/Oct/2023 12:05:29] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:07:22 [INFO] 127.0.0.1 - - [30/Oct/2023 12:07:22] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:07:22 [INFO] Question: 1 what tyrpes of customers do i have
+2023-10-30 12:07:22 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:07:22 [INFO] Prompt ID: 30451cc2-3e08-48ab-a7e9-440e9a0ef942
+2023-10-30 12:07:51 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    
+    # Analyze
+    result = f"The types of customers are: {', '.join(customer_types)}"
+    
+    # Output
+    output = {
+        "type": "text",
+        "value": result
+    }
+    
+    return output
+```
+
+2023-10-30 12:07:51 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    result = f"The types of customers are: {', '.join(customer_types)}"
+    output = {'type': 'text', 'value': result}
+    return output
+        ```
+2023-10-30 12:07:51 [INFO] Answer: {'type': 'text', 'value': 'The types of customers are: Member, Normal'}
+2023-10-30 12:07:51 [INFO] Executed in: 28.211864233016968s
+2023-10-30 12:07:51 [INFO] 127.0.0.1 - - [30/Oct/2023 12:07:51] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:08:15 [INFO] 127.0.0.1 - - [30/Oct/2023 12:08:15] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:08:15 [INFO] Question: 1 what tyrpes of customers do i have
+2023-10-30 12:08:15 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:08:15 [INFO] Prompt ID: 1fb35605-46a6-47ee-9ffc-f43a7930fd04
+2023-10-30 12:08:15 [INFO] Using cached response
+2023-10-30 12:08:15 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    
+    # Analyze
+    result = f"The types of customers are: {', '.join(customer_types)}"
+    
+    # Output
+    output = {
+        "type": "text",
+        "value": result
+    }
+    
+    return output
+```
+
+2023-10-30 12:08:15 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    result = f"The types of customers are: {', '.join(customer_types)}"
+    output = {'type': 'text', 'value': result}
+    return output
+        ```
+2023-10-30 12:08:15 [INFO] Answer: {'type': 'text', 'value': 'The types of customers are: Member, Normal'}
+2023-10-30 12:08:15 [INFO] Executed in: 0.01667928695678711s
+2023-10-30 12:08:15 [INFO] 127.0.0.1 - - [30/Oct/2023 12:08:15] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:08:38 [INFO] 127.0.0.1 - - [30/Oct/2023 12:08:38] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:08:38 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\flask\\app.py', reloading
+2023-10-30 12:08:38 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\flask_cors\\extension.py', reloading
+2023-10-30 12:08:38 [INFO] 127.0.0.1 - - [30/Oct/2023 12:08:38] "[35m[1mPOST /query HTTP/1.1[0m" 500 -
+2023-10-30 12:16:27 [INFO] Question: 1 . which is the highest gross income
+2023-10-30 12:16:27 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:16:27 [INFO] Prompt ID: 68243588-97ea-48ce-91eb-ab10cc691881
+2023-10-30 12:16:39 [INFO] Question: 1 . which is the highest gross income
+2023-10-30 12:16:39 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:16:39 [INFO] Prompt ID: 7af57f29-2d94-48f4-a943-fb3529cddeaf
+2023-10-30 12:16:58 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Process: Find the highest gross income
+    highest_gross_income = dfs[0]['gross income'].max()
+    
+    # Output: Return the highest gross income as text
+    return {"type": "text", "value": f"The highest gross income is {highest_gross_income}."}
+```
+
+2023-10-30 12:16:58 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    highest_gross_income = dfs[0]['gross income'].max()
+    return {'type': 'text', 'value': f'The highest gross income is {highest_gross_income}.'}
+        ```
+2023-10-30 12:16:58 [INFO] Answer: {'type': 'text', 'value': 'The highest gross income is 49.65.'}
+2023-10-30 12:16:58 [INFO] Executed in: 18.829189777374268s
+2023-10-30 12:16:58 [INFO] 127.0.0.1 - - [30/Oct/2023 12:16:58] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:17:33 [INFO] 127.0.0.1 - - [30/Oct/2023 12:17:33] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:17:33 [INFO] Question: 1 . what type of payments do i have
+2023-10-30 12:17:33 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:17:33 [INFO] Prompt ID: 09eb5136-5997-4df9-8d15-2f5458f71ddf
+2023-10-30 12:17:55 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Prepare
+    df = dfs[0]  # Assuming we are working with the first dataframe
+    
+    # Process
+    payment_types = df['Payment'].unique()
+    
+    # Analyze
+    payment_types_str = ', '.join(payment_types)
+    result = f"The available payment types are: {payment_types_str}"
+    
+    # Output
+    output = {
+        "type": "text",
+        "value": result
+    }
+    
+    return output
+```
+
+2023-10-30 12:17:55 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    payment_types = df['Payment'].unique()
+    payment_types_str = ', '.join(payment_types)
+    result = f'The available payment types are: {payment_types_str}'
+    output = {'type': 'text', 'value': result}
+    return output
+        ```
+2023-10-30 12:17:55 [INFO] Answer: {'type': 'text', 'value': 'The available payment types are: Ewallet, Cash, Credit card'}
+2023-10-30 12:17:55 [INFO] Executed in: 22.183607578277588s
+2023-10-30 12:17:55 [INFO] 127.0.0.1 - - [30/Oct/2023 12:17:55] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:18:34 [INFO] 127.0.0.1 - - [30/Oct/2023 12:18:34] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:18:34 [INFO] Question: 1 .what are the types of customers do i have
+2023-10-30 12:18:34 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:18:34 [INFO] Prompt ID: ccdd4320-4d87-4232-b9ee-0bfb3204ec57
+2023-10-30 12:19:02 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]  # Assuming we are working with the first dataframe
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    
+    # Analyze
+    result = {
+        "type": "text",
+        "value": f"The types of customers are: {', '.join(customer_types)}"
+    }
+    
+    return result
+```
+
+2023-10-30 12:19:02 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    result = {'type': 'text', 'value': f"The types of customers are: {', '.join(customer_types)}"}
+    return result
+        ```
+2023-10-30 12:19:02 [INFO] Answer: {'type': 'text', 'value': 'The types of customers are: Member, Normal'}
+2023-10-30 12:19:02 [INFO] Executed in: 27.950596809387207s
+2023-10-30 12:19:02 [INFO] 127.0.0.1 - - [30/Oct/2023 12:19:02] "POST /query HTTP/1.1" 200 -
+2023-10-30 12:19:34 [INFO] 127.0.0.1 - - [30/Oct/2023 12:19:34] "OPTIONS /query HTTP/1.1" 200 -
+2023-10-30 12:19:34 [INFO] Question: 1 .plot the types of customers
+2023-10-30 12:19:34 [INFO] Running PandasAI with openai LLM...
+2023-10-30 12:19:34 [INFO] Prompt ID: 9c878599-e1ae-4a32-b038-53be1151be2a
+2023-10-30 12:19:56 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].value_counts()
+    
+    # Analyze
+    plt.bar(customer_types.index, customer_types.values)
+    plt.xlabel('Customer Type')
+    plt.ylabel('Count')
+    plt.title('Types of Customers')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+```
+
+2023-10-30 12:19:56 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].value_counts()
+    plt.bar(customer_types.index, customer_types.values)
+    plt.xlabel('Customer Type')
+    plt.ylabel('Count')
+    plt.title('Types of Customers')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+        ```
+2023-10-30 12:19:58 [WARNING] Error of executing code
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\pandasai\\helpers\\code_manager.py', reloading
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\pyplot.py', reloading
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\figure.py', reloading
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backend_bases.py', reloading
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\backends\\backend_agg.py', reloading
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\matplotlib\\image.py', reloading
+2023-10-30 12:19:58 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\PIL\\Image.py', reloading
+2023-10-30 12:19:58 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-30 12:19:58 [ERROR] Failed with error: [Errno 13] Permission denied: '/temp_chart.png'. Retrying
+2023-10-30 19:22:33 [INFO] Question: 1 which is the highest gross income?
+2023-10-30 19:22:33 [INFO] Running PandasAI with openai LLM...
+2023-10-30 19:22:33 [INFO] Prompt ID: 936d253a-c1a4-47d9-b3c5-78a9edb54889
+2023-10-30 19:23:02 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    
+    # Process: Find the highest gross income
+    highest_gross_income = dfs[0]['gross income'].max()
+    
+    # Output: Return the highest gross income
+    return {"type": "number", "value": highest_gross_income}
+```
+
+2023-10-30 19:23:02 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    highest_gross_income = dfs[0]['gross income'].max()
+    return {'type': 'number', 'value': highest_gross_income}
+        ```
+2023-10-30 19:23:02 [INFO] Answer: {'type': 'number', 'value': 49.65}
+2023-10-30 19:23:02 [INFO] Executed in: 29.166213035583496s
+2023-10-30 19:23:02 [INFO] 127.0.0.1 - - [30/Oct/2023 19:23:02] "POST /query HTTP/1.1" 200 -
+2023-10-30 19:23:37 [INFO] Question: 1 what type of payments do I HAVE
+2023-10-30 19:23:37 [INFO] Running PandasAI with openai LLM...
+2023-10-30 19:23:37 [INFO] Prompt ID: da43a33f-43a8-44b8-a0de-c45a9e85e31a
+2023-10-30 19:23:59 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    payment_types = df['Payment'].unique()
+    
+    # Analyze
+    payment_types_str = ', '.join(payment_types)
+    result = f"The available payment types are: {payment_types_str}."
+    
+    # Output
+    output = {
+        "type": "text",
+        "value": result
+    }
+    
+    return output
+```
+
+2023-10-30 19:23:59 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    payment_types = df['Payment'].unique()
+    payment_types_str = ', '.join(payment_types)
+    result = f'The available payment types are: {payment_types_str}.'
+    output = {'type': 'text', 'value': result}
+    return output
+        ```
+2023-10-30 19:23:59 [INFO] Answer: {'type': 'text', 'value': 'The available payment types are: Ewallet, Cash, Credit card.'}
+2023-10-30 19:23:59 [INFO] Executed in: 21.825607776641846s
+2023-10-30 19:23:59 [INFO] 127.0.0.1 - - [30/Oct/2023 19:23:59] "POST /query HTTP/1.1" 200 -
+2023-10-30 19:26:22 [INFO] Question: 1WHAT kind of customers do i have?
+2023-10-30 19:26:22 [INFO] Running PandasAI with openai LLM...
+2023-10-30 19:26:22 [INFO] Prompt ID: cb6089d5-ad62-4af4-885e-a062dedcf0b5
+2023-10-30 19:26:52 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    customer_types = df['Customer type'].unique()
+    
+    # Analyze
+    result = f"The customers are of type: {', '.join(customer_types)}"
+    
+    # Output
+    output = {
+        "type": "text",
+        "value": result
+    }
+    
+    return output
+```
+
+2023-10-30 19:26:52 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in /temp_chart.png and do not show the chart.)
+    4. Output: return a dictionary of:
+    - type (possible values "text", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+    """
+    df = dfs[0]
+    customer_types = df['Customer type'].unique()
+    result = f"The customers are of type: {', '.join(customer_types)}"
+    output = {'type': 'text', 'value': result}
+    return output
+        ```
+2023-10-30 19:26:52 [INFO] Answer: {'type': 'text', 'value': 'The customers are of type: Member, Normal'}
+2023-10-30 19:26:52 [INFO] Executed in: 30.230379104614258s
+2023-10-30 19:26:52 [INFO] 127.0.0.1 - - [30/Oct/2023 19:26:52] "POST /query HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "[36mGET /image/temp_chart.png HTTP/1.1[0m" 304 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "[36mGET /image/temp_chart_20231030185532.png HTTP/1.1[0m" 304 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /image/temp_chart_20231030192028.png HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /image/temp_chart_20231030191157.png HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /image/temp_chart_20231030190711.png HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /image/temp_chart_20231030192302.png HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "[36mGET /image/temp_chart_20231030185620.png HTTP/1.1[0m" 304 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /image/temp_chart_20231030192359.png HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "GET /image/temp_chart_20231030192652.png HTTP/1.1" 200 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "[36mGET /image/temp_chart_20231030185703.png HTTP/1.1[0m" 304 -
+2023-10-30 19:27:33 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:33] "[36mGET /image/temp_chart_20231030185757.png HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /download.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /options.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /clear-filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /inventory.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /sort.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /date.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:27:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:27:39] "[36mGET /right.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:28:39 [INFO] 127.0.0.1 - - [30/Oct/2023 19:28:39] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030185703.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030185532.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030185620.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030185757.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030190711.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030192028.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030191157.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030192302.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030192359.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:04] "[36mGET /image/temp_chart_20231030192652.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:09] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030185532.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030185620.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030185703.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030185757.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030190711.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030191157.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030192028.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030192359.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030192652.png HTTP/1.1[0m" 304 -
+2023-10-30 19:29:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:29:15] "[36mGET /image/temp_chart_20231030192302.png HTTP/1.1[0m" 304 -
+2023-10-30 19:30:57 [INFO] 127.0.0.1 - - [30/Oct/2023 19:30:57] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /download.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /options.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /clear-filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /inventory.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /sort.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /date.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:05] "[36mGET /right.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:31:07 [INFO] 127.0.0.1 - - [30/Oct/2023 19:31:07] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:37:03 [INFO] 127.0.0.1 - - [30/Oct/2023 19:37:03] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:39:41 [INFO] 127.0.0.1 - - [30/Oct/2023 19:39:41] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "[36mGET / HTTP/1.1[0m" 304 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "[36mGET /assets/index-2a2b7431.css HTTP/1.1[0m" 304 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "[36mGET /assets/index-de4a9264.js HTTP/1.1[0m" 304 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "[36mGET /logo.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "GET /session HTTP/1.1" 200 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "[36mGET /message.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:04 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:04] "[36mGET /gptassist.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:05 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:05] "[36mGET /logo.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030185532.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030185703.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030185620.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030185757.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030190711.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030191157.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030192028.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030192302.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030192359.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:09 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:09] "[36mGET /image/temp_chart_20231030192652.png HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /clear-filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /inventory.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /options.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /download.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /sort.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /right.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:11 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:11] "[36mGET /date.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:40:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:40:13] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:43:07 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:07] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:43:10 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:10] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET / HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /assets/index-2a2b7431.css HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /assets/index-de4a9264.js HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /session HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /message.svg HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /logo.svg HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /gptassist.svg HTTP/1.1" 200 -
+2023-10-30 19:43:13 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:13] "GET /logo.svg HTTP/1.1" 200 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /download.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /clear-filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /sort.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /filter.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /options.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /inventory.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /date.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:15 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:15] "[36mGET /right.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:43:16 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:16] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:43:22 [INFO] 127.0.0.1 - - [30/Oct/2023 19:43:22] "[36mGET /download/dailyreport HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "GET /imageList HTTP/1.1" 200 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030185757.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030185703.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030185532.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030185620.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030190711.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030192028.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030191157.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030192302.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030192652.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:24 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:24] "[36mGET /image/temp_chart_20231030192359.png HTTP/1.1[0m" 304 -
+2023-10-30 19:44:28 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:28] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 19:44:28 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:28] "[36mGET /upload.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:44:28 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:28] "[36mGET /logo.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:44:28 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:28] "[36mGET /send.svg HTTP/1.1[0m" 304 -
+2023-10-30 19:44:28 [INFO] 127.0.0.1 - - [30/Oct/2023 19:44:28] "[36mGET /upload-loop.svg HTTP/1.1[0m" 304 -
+2023-10-30 20:19:42 [INFO] 127.0.0.1 - - [30/Oct/2023 20:19:42] "[36mGET /logo.svg HTTP/1.1[0m" 304 -
+2023-10-30 20:19:42 [INFO] 127.0.0.1 - - [30/Oct/2023 20:19:42] "GET /getChats?id=12345 HTTP/1.1" 200 -
+2023-10-30 20:19:42 [INFO] 127.0.0.1 - - [30/Oct/2023 20:19:42] "[36mGET /upload.svg HTTP/1.1[0m" 304 -
+2023-10-30 20:19:42 [INFO] 127.0.0.1 - - [30/Oct/2023 20:19:42] "[36mGET /send.svg HTTP/1.1[0m" 304 -
+2023-10-30 20:19:42 [INFO] 127.0.0.1 - - [30/Oct/2023 20:19:42] "[36mGET /upload-loop.svg HTTP/1.1[0m" 304 -
+2023-10-30 20:19:52 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\flask\\app.py', reloading
+2023-10-30 20:19:52 [INFO]  * Detected change in 'C:\\Users\\amosm\\anaconda3\\envs\\interp\\Lib\\site-packages\\flask_cors\\extension.py', reloading
+2023-10-30 20:19:52 [INFO]  * Detected change in 'c:\\Users\\amosm\\Desktop\\Intel-GPT\\Frontend+Backend\\main.py', reloading
+2023-10-30 20:19:52 [INFO] 127.0.0.1 - - [30/Oct/2023 20:19:52] "[35m[1mPOST /query HTTP/1.1[0m" 500 -
